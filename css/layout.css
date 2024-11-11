@@ -1,0 +1,37 @@
+.main-content {
+    padding-left: 32px;
+    padding-right: 32px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.flow {
+    flex-flow: wrap;
+}
+
+.spacer {
+    flex-grow: 1;
+    flex-shrink: 1;
+}
+
+.align-items-start {
+    align-items: start;
+}
+
+.align-items-center {
+    align-items: center;
+}
+
+.align-items-end {
+    align-items: end;
+}
