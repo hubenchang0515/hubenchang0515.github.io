@@ -22,7 +22,6 @@ body {
 .navigation {
     display: flex;
     background-color: rgb(255,254,254);
-    margin-bottom: 1em;
 }
 
 .entry-item {
