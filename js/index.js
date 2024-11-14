@@ -66,6 +66,23 @@ const initExpand = () => {
     }
 }
 
+const showRepos = (id, user) => {
+    fetch(`https://api.github.com/search/repositories?q=user:${user}&sort=updated&order=desc&per_page=10`).then((response) => {
+        if (response.ok) {
+            response.json().then((data) => {
+                const node = document.getElementById(id);
+                node.innerHTML = "";
+                for (const repo of data.items) {
+                    console.log(repo.stargazers_count)
+                    node.innerHTML +=   `<a class="card" href="https://github.com/hubenchang0515/${repo.name}" target="_blank">
+                                            <img class="github-readme-stats" src="https://github-readme-stats.vercel.app/api/pin/?username=hubenchang0515&repo=${repo.name}&theme=default&hide_border=true"/>
+                                        </a>`
+                }
+            });
+        }
+    });
+}
+
 const globalClick = () => {
     collapseAll();
 }

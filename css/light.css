@@ -40,6 +40,9 @@ body {
 
 .expand {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .expand-content {

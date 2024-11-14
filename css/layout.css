@@ -1,26 +1,29 @@
 .main-content {
-    padding: 16px 32px;
+    padding: 8px;
 }
 
 .row {
     display: flex;
     flex-direction: row;
-    gap: 16px;
+    gap: 8px;
 }
 
 .col {
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 8px;
 }
 
 .flow {
-    flex-flow: wrap;
+    flex-wrap: wrap;
 }
 
-.spacer {
+.flex-grow-1 {
     flex-grow: 1;
-    flex-shrink: 1;
+}
+
+.flex-grow-100 {
+    flex-grow: 100;
 }
 
 .align-items-start {
@@ -33,4 +36,43 @@
 
 .align-items-end {
     align-items: end;
+}
+
+.align-items-stretch {
+    align-items: stretch;
+}
+
+.justify-content-start {
+    justify-content: start;
+}
+
+.justify-content-center {
+    justify-content: center;
+}
+
+.justify-content-end {
+    justify-content: end;
+}
+
+.justify-content-space-around {
+    justify-content: space-around;
+}
+
+.justify-content-space-between {
+    justify-content: space-between;
+}
+
+.justify-content-space-evenly {
+    justify-content: space-evenly;
+}
+
+.nav-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(10em, 1fr));
+}
+
+.card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
+    gap: 8px;
 }
