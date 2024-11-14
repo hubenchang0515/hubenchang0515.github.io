@@ -59,8 +59,8 @@ const initExpand = () => {
         button.addEventListener('click', (ev) => {
             collapseAll();
             ev.stopPropagation();
-            content.style.display = "flex";
-            content.style.top = `${button.getBoundingClientRect().bottom + 5}px`;
+            content.style.display = "grid";
+            content.style.top = `${button.getBoundingClientRect().bottom}px`;
             content.style.left = `${button.getBoundingClientRect().left}px`;
         })
     }
@@ -72,10 +72,12 @@ const showRepos = (id, user) => {
             response.json().then((data) => {
                 const node = document.getElementById(id);
                 node.innerHTML = "";
+                const query = window.matchMedia("(prefers-color-scheme:dark)");
+                const theme = query.matches ? "nord" : "default"
                 for (const repo of data.items) {
                     console.log(repo.stargazers_count)
                     node.innerHTML +=   `<a class="card" href="https://github.com/hubenchang0515/${repo.name}" target="_blank">
-                                            <img class="github-readme-stats" src="https://github-readme-stats.vercel.app/api/pin/?username=hubenchang0515&repo=${repo.name}&theme=default&hide_border=true"/>
+                                            <img class="github-readme-stats" src="https://github-readme-stats.vercel.app/api/pin/?username=hubenchang0515&repo=${repo.name}&theme=${theme}&hide_border=true"/>
                                         </a>`
                 }
             });

@@ -46,10 +46,12 @@
     .expand-content {
         position: fixed;
         display: none;
-        flex-direction: column;
+        grid-auto-flow: column;
+        grid-template-rows: repeat(12, auto);
         background-color: rgb(46,52,64);
-        border: 1px solid #616161;
+        border: 1px solid rgb(23,26,32);
         border-radius: 4px;
+        box-shadow: 10px 10px 15px rgba(0, 0, 0, 0.3);
     }
     
     .expand-item {
