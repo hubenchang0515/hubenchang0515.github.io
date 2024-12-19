@@ -13,6 +13,7 @@ const setChinese = (isChinese) => {
         "qt-theme": "Qt 主题",
         "svg-icon": "SVG 图标",
         "gis-tile-download": "GIS 图块下载",
+        "more": "更多..."
     };
     
     for (const item in translations) {
