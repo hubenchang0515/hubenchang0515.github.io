@@ -78,7 +78,7 @@ const showRepos = (id, user) => {
                 for (const repo of data.items) {
                     console.log(repo.stargazers_count)
                     node.innerHTML +=   `<a class="card" href="https://github.com/hubenchang0515/${repo.name}" target="_blank">
-                                            <img class="github-readme-stats" src="https://github-readme-stats.vercel.app/api/pin/?username=hubenchang0515&repo=${repo.name}&theme=${theme}&hide_border=true"/>
+                                            <img class="github-readme-stats" alt="${repo.name}" src="https://github-readme-stats.vercel.app/api/pin/?username=hubenchang0515&repo=${repo.name}&theme=${theme}&hide_border=true"/>
                                         </a>`
                 }
             });

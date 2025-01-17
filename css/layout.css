@@ -26,6 +26,10 @@
     flex-grow: 100;
 }
 
+.flex-shrink-1 {
+    flex-shrink: 1;
+}
+
 .align-items-start {
     align-items: start;
 }
@@ -75,4 +79,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(420px, 1fr));
     gap: 8px;
+    overflow:hidden
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+.card {
+    max-width: 100%;
 }
