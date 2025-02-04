@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 import { Box } from "@mui/material";
 import Dock from "./Dock";
 import { Window, WindowState } from "./Window";
@@ -13,6 +13,18 @@ export interface DesktopProps {
 export default function Desktop(props:DesktopProps) {
     const [launcherOpen, setLauncherOpen] = useState(false);
     const [windows, setWindows] = useState<WindowState[]>([]);
+
+    useEffect(() => {
+        if (launcherOpen) {
+            for (const window of windows) {
+                window.focus = false;
+            }
+
+            setWindows([...windows]);
+        } else {
+            focusTop();
+        }
+    }, [launcherOpen, windows])
 
     const getFocusWindowIndex = useCallback(() => {
         let focusWindowIndex = -1;
