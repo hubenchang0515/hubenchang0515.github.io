@@ -101,14 +101,14 @@ export function Window(props:WindowProps) {
                 <Box flexGrow={1} sx={{position:'relative'}}>
                     <iframe 
                         ref={iframeRef} // TODO: 点击 iframe 切换窗口焦点
-                        style={{width:'100%', height:'100%', border:0}} 
+                        style={{width:'100%', height:'100%', border:0,userSelect:'none'}} 
                         src={props.state.url}
                     >
 
                     </iframe>
                     
                     {/* 一个透明图层，用于捕获事件 */}
-                    {(!isNaN(pos.current.x) || !props.state.focus) ? <Box sx={{position:'absolute',top:0,left:0,bottom:0,right:0,userSelect:'none',background:'rgba(0,0,0,0.4)'}}/> : <></>}
+                    {(!isNaN(pos.current.x) || !props.state.focus) ? <Box sx={{position:'absolute',top:0,left:0,bottom:0,right:0,userSelect:'none',background:'rgba(0,0,0,0.2)'}}/> : <></>}
                 </Box>
             </Paper>
         </Fade>
