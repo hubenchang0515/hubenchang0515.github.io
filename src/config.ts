@@ -19,6 +19,6 @@ export const APPS:ApplicationProps[] = [
         title: 'Moe Tools',
         icon: 'https://hubenchang0515.github.io/moe-tools/favicon.svg',
         url: 'https://hubenchang0515.github.io/moe-tools/',
-        subtitle: 'Versatile online toolse',
+        subtitle: 'Versatile online toolset',
     },
 ]
