@@ -24,7 +24,7 @@ export function Launcher(props:LauncherProps) {
                     position:'absolute',
                     bottom: 0,
                     left: 0,
-                    width: {xs:'100%', lg:'480px'},
+                    width: {xs:'100%', md:'480px'},
                     height: {xs:'100%', lg:'720px'},
                     zIndex: 9999,
                     display: 'flex'
