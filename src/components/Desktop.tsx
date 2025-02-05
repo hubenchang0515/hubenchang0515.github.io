@@ -128,6 +128,7 @@ export default function Desktop(props:DesktopProps) {
             icon: app.icon,
             title: app.title,
             url: app.url,
+            children: app.children,
             x: index >= 0 ? windows[index].x + 20 : 100,
             y: index >= 0 ? windows[index].y + 20 : 100,
             z: index >= 0 ? windows[index].z + 1 : 1,

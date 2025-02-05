@@ -1,6 +1,6 @@
 import { Fade, IconButton, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import { useCallback, useRef } from "react";
+import React, { useCallback, useRef } from "react";
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import UnfoldLessIcon from '@mui/icons-material/UnfoldLess';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
@@ -10,7 +10,6 @@ export interface WindowState {
     id: number;
     icon: string;
     title: string;
-    url: string;
     x: number;
     y: number;
     z: number;
@@ -19,6 +18,9 @@ export interface WindowState {
     minimum?: boolean;
     maximum?: boolean;
     focus?: boolean;
+
+    url?: string;
+    children?: React.ReactNode;
 }
 
 export interface WindowProps {
@@ -148,13 +150,18 @@ export function Window(props:WindowProps) {
                 </Box>
                 
                 <Box flexGrow={1} sx={{position:'relative'}}>
-                    <iframe 
-                        ref={iframeRef} // TODO: 点击 iframe 切换窗口焦点
-                        style={{width:'100%', height:'100%', border:0,userSelect:'none'}} 
-                        src={props.state.url}
-                    >
-
-                    </iframe>
+                    {
+                        props.state.url ? 
+                        <iframe 
+                            ref={iframeRef} // TODO: 点击 iframe 切换窗口焦点
+                            style={{width:'100%', height:'100%', border:0,userSelect:'none'}} 
+                            src={props.state.url}
+                        >
+                        </iframe>
+                        :
+                        props.state.children
+                    }
+                    
                     
                     {/* 一个透明图层，用于捕获事件 */}
                     {(!isNaN(pos.current.x) || !props.state.focus) ? <Box sx={{position:'absolute',top:0,left:0,bottom:0,right:0,userSelect:'none',background:'rgba(0,0,0,0.2)'}}/> : <></>}
