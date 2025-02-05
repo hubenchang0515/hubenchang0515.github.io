@@ -38,7 +38,6 @@ export interface WindowProps {
 export function Window(props:WindowProps) {
     const pos = useRef({x:NaN, y:NaN})
     const windowRef = useRef<HTMLDivElement>(null);
-    const iframeRef = useRef<HTMLIFrameElement>(null);
     const [mask, setMask] = useState(false);
 
     const mouseMove = useCallback((ev:any) => {
@@ -196,8 +195,7 @@ export function Window(props:WindowProps) {
                     {
                         props.state.children ? 
                         props.state.children :
-                        <iframe 
-                            ref={iframeRef}
+                        <iframe
                             style={{width:'100%', height:'100%',verticalAlign:'bottom',margin:0, padding:0, border:0,userSelect:'none'}} 
                             src={props.state.url}
                         />
