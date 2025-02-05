@@ -6,6 +6,9 @@ import { ApplicationProps } from "../features/Application";
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import PersonIcon from '@mui/icons-material/Person';
 import GitHubIcon from '@mui/icons-material/GitHub';
+import FullscreenIcon from '@mui/icons-material/Fullscreen';
+import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
+import { useEffect, useState } from "react";
 
 export interface LauncherProps {
     open?: boolean;
@@ -16,6 +19,16 @@ export interface LauncherProps {
 }
 
 export function Launcher(props:LauncherProps) {
+    const [fullscreen, setFullscreen] = useState(false);
+
+    useEffect(() => {
+        if (fullscreen) {
+            document.documentElement.requestFullscreen();
+        } else {
+            document.exitFullscreen();
+        }
+    }, [fullscreen]);
+
     return (
         <Fade 
             in={props.open} 
@@ -48,6 +61,9 @@ export function Launcher(props:LauncherProps) {
                     <Box flexGrow={1}/>
                     <IconButton onClick={props.onUserButtonClick}>
                         <PersonIcon/>
+                    </IconButton>
+                    <IconButton onClick={()=>setFullscreen(!fullscreen)}>
+                        {fullscreen ? <FullscreenExitIcon/> : <FullscreenIcon/>}
                     </IconButton>
                     <IconButton onClick={props.onCloseButtonClick}>
                         <PowerSettingsNewIcon/>
