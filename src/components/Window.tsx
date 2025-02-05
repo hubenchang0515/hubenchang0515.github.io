@@ -1,6 +1,6 @@
 import { IconButton, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useCallback, useRef } from "react";
+import React, { useCallback, useEffect, useRef, useState } from "react";
 
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -20,6 +20,7 @@ export interface WindowState {
     minimum?: boolean;
     maximum?: boolean;
     focus?: boolean;
+    poor?:boolean; // 性能较差，缩放时需要隐藏内容
 
     url?: string;
     children?: React.ReactNode;
@@ -36,7 +37,9 @@ export interface WindowProps {
 
 export function Window(props:WindowProps) {
     const pos = useRef({x:NaN, y:NaN})
+    const windowRef = useRef<HTMLDivElement>(null);
     const iframeRef = useRef<HTMLIFrameElement>(null);
+    const [mask, setMask] = useState(false);
 
     const mouseMove = useCallback((ev:any) => {
         if (isNaN(pos.current.x) || isNaN(pos.current.y)) {
@@ -64,9 +67,32 @@ export function Window(props:WindowProps) {
 
     const forceMaximum:boolean = document.documentElement.clientWidth <= props.state.width || document.documentElement.clientHeight - 64 <= props.state.height;
 
+    useEffect(() => {
+        if (!props.state.poor) {
+            return;
+        }
+
+        const callback = (ev:TransitionEvent) => {
+            if (ev.type === 'transitionstart' && ['width', 'height'].includes(ev.propertyName)) {
+                setMask(true)
+            } else if (ev.type === 'transitionend' && ['width', 'height'].includes(ev.propertyName)) {
+                setMask(false)
+            }
+        }
+
+        windowRef.current?.addEventListener("transitionstart", callback);
+        windowRef.current?.addEventListener("transitionend", callback);
+
+        return () => {
+            windowRef.current?.removeEventListener("transitionstart", callback);
+            windowRef.current?.removeEventListener("transitionend", callback);
+        }
+    }, [props.state.poor, windowRef.current])
+
     return (
         <Paper 
             className="window"
+            ref={windowRef}
             elevation={12}
             square={forceMaximum || props.state.maximum}
             sx={{
@@ -81,7 +107,7 @@ export function Window(props:WindowProps) {
                 background: 'rgb(221,227,233)',
                 overflow: 'hidden',
                 transitionProperty: isNaN(pos.current.x) ? 'all': 'none', // 拖动时禁用动画
-                transitionDuration: '100ms',
+                transitionDuration: '200ms',
                 transitionTimingFunction: 'ease',
             }}
             onMouseDown={() => {
@@ -166,7 +192,7 @@ export function Window(props:WindowProps) {
             </Box>
             
             <Box flexGrow={1} sx={{position:'relative', overflow:'hidden'}}>
-                <Box sx={{width:'100%', height:'100%', overflow:'auto'}}>
+                <Box sx={{width:'100%', height:'100%', overflow:'auto', display:mask?'none':'block', }}>
                     {
                         props.state.children ? 
                         props.state.children :

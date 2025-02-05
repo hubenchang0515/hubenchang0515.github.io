@@ -7,6 +7,7 @@ export const APPS:ApplicationProps[] = [
         icon: 'https://hubenchang0515.github.io/QtTheme/icon.svg',
         url: 'https://hubenchang0515.github.io/QtTheme/',
         subtitle: 'Qt theme in pure qss',
+        poor: true,
     },
 
     {

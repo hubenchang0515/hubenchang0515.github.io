@@ -140,6 +140,7 @@ export default function Desktop(props:DesktopProps) {
             maximum: false,
             minimum: false,
             focus: true,
+            poor: app.poor,
         }
         if (index >= 0) {
             windows[index].focus = false;
