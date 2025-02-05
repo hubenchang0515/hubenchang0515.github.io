@@ -1,5 +1,6 @@
 import { ApplicationProps } from "./features/Application";
 import Discuss from "./components/Discuss";
+import Browser from "./components/Browser";
 
 export const APPS:ApplicationProps[] = [
     {
@@ -22,6 +23,14 @@ export const APPS:ApplicationProps[] = [
         icon: 'https://hubenchang0515.github.io/moe-tools/favicon.svg',
         url: 'https://hubenchang0515.github.io/moe-tools/',
         subtitle: 'Versatile online toolset',
+    },
+
+    {
+        title: 'Browser',
+        icon: 'icons/browser.svg',
+        url: 'https://github.com/hubenchang0515/hubenchang0515.github.io/discussions',
+        subtitle: 'Simple Browser in iframe',
+        children: <Browser defaultUrl="https://www.google.com/?igu=1"/>
     },
 
     {
