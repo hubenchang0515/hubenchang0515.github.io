@@ -69,7 +69,7 @@ export function Window(props:WindowProps) {
             <Paper 
                 className="window"
                 elevation={12}
-                square={props.state.maximum}
+                square={forceMaximum || props.state.maximum}
                 sx={{
                     position: 'absolute',
                     top: forceMaximum || props.state.maximum ? 0 : props.state.y,
