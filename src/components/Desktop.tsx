@@ -1,9 +1,10 @@
 import { useCallback, useEffect, useState } from "react";
-import { Box } from "@mui/material";
+import { Box, Fade } from "@mui/material";
 import Dock from "./Dock";
 import { Window, WindowState } from "./Window";
 import { Launcher } from "./Launcher";
 import { ApplicationProps } from "../features/Application";
+import { TransitionGroup } from "react-transition-group";
 
 export interface DesktopProps {
     background: string;
@@ -162,17 +163,18 @@ export default function Desktop(props:DesktopProps) {
             }}
         >
             <Box
+                component={TransitionGroup}
                 sx={{
                     position:'relative',
                     flexGrow: 1
                 }}
-                onClick={()=>setLauncherOpen(false)}    
+                onClick={()=>setLauncherOpen(false)}
             >
                 {
                     windows.map((window, index) => {
                         return (
+                            <Fade key={window.id}><Box>
                             <Window
-                                key={window.id}
                                 state={window} 
                                 onClick={()=>{focusWindow(index)}} 
                                 onMove={(x,y) => moveWindow(index, x, y)}
@@ -180,6 +182,7 @@ export default function Desktop(props:DesktopProps) {
                                 onMaximum={(maximum) => maximumWindow(index, maximum)}
                                 onClose={() => closeWindow(index)}
                             /> 
+                            </Box></Fade>
                         )
                     })
                 }

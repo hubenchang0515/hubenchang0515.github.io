@@ -1,4 +1,4 @@
-import { Fade, IconButton, Paper, Typography } from "@mui/material";
+import { IconButton, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useCallback, useRef } from "react";
 
@@ -65,120 +65,122 @@ export function Window(props:WindowProps) {
     const forceMaximum:boolean = document.documentElement.clientWidth <= props.state.width || document.documentElement.clientHeight - 64 <= props.state.height;
 
     return (
-        <Fade in={!props.state.minimum}>
-            <Paper 
-                className="window"
-                elevation={12}
-                square={forceMaximum || props.state.maximum}
-                sx={{
-                    position: 'absolute',
-                    top: forceMaximum || props.state.maximum ? 0 : props.state.y,
-                    left: forceMaximum || props.state.maximum ? 0 : props.state.x,
-                    zIndex: props.state.z,
-                    width: forceMaximum || props.state.maximum ? '100%' : props.state.width,
-                    height: forceMaximum || props.state.maximum ? '100%' : props.state.height,
-                    display: 'flex',
-                    flexDirection: 'column',
-                    background: 'rgb(221,227,233)',
-                }}
-                onMouseDown={() => {
-                    props.onClick?.();
-                }}
-                onTouchStart={() => {
-                    props.onClick?.();
-                }}
-            >
-                <Box display='flex' alignItems='center' sx={{userSelect:'none'}}>
-                    
-                    <Box flexGrow={1} display='flex' alignItems='center' 
-                        onMouseDown={(ev:any) => {
-                            props.onClick?.();
-                            if (forceMaximum || props.state.maximum) {
-                                return;
-                            }
-
-                            pos.current.x = ev.clientX; 
-                            pos.current.y = ev.clientY;
-                            document.addEventListener("mousemove", mouseMove);
-    
-                            const mouseUp = () => {
-                                props.onClick?.();
-                                pos.current.x = NaN; 
-                                pos.current.y = NaN;
-                                document.removeEventListener("mousemove", mouseMove);
-                                document.removeEventListener("mouseup", mouseUp);
-                            }
-                            document.addEventListener("mouseup", mouseUp);
-                        }}
-    
-                        onTouchStart={(ev:any) => {
-                            props.onClick?.();
-                            if (forceMaximum || props.state.maximum) {
-                                return;
-                            }
-
-                            pos.current.x = ev.touches[0].clientX; 
-                            pos.current.y = ev.touches[0].clientY;
-                            document.addEventListener("touchmove", touchMove);
-    
-                            const touchUp = () => {
-                                props.onClick?.();
-                                pos.current.x = NaN; 
-                                pos.current.y = NaN;
-                                document.removeEventListener("touchmove", touchMove);
-                                document.removeEventListener("touchend", touchUp);
-                                document.removeEventListener("touchcancel", touchUp);
-                            }
-                            document.addEventListener("touchend", touchUp);
-                            document.addEventListener("touchcancel", touchUp);
-                        }}
-                    >
-                        <img style={{width:32, height:32, paddingLeft:8, paddingRight:8}} src={props.state.icon}></img>
-                        <Typography>{props.state.title}</Typography>
-                    </Box>
-
-                    {
-                        props.state.url ? 
-                        <IconButton href={props.state.url} target="_blank">
-                            <OpenInNewIcon color="primary"/>
-                        </IconButton>
-                        :
-                        <></>
-                    }
-
-                    <IconButton onClick={()=>props.onMimimum?.(true)}>
-                        <ExpandMoreIcon color="primary"/>
-                    </IconButton>
-
-                    {
-                        forceMaximum ? <></> :
-                        <IconButton onClick={()=>props.onMaximum?.(!props.state.maximum)}>
-                            {props.state.maximum ? <UnfoldLessIcon  color="primary"/> : <UnfoldMoreIcon  color="primary"/>}
-                        </IconButton>
-                    }
-                    
-                    <IconButton onClick={()=>props.onClose?.()}>
-                        <CloseIcon color="error"/>
-                    </IconButton>
-                </Box>
+        <Paper 
+            className="window"
+            elevation={12}
+            square={forceMaximum || props.state.maximum}
+            sx={{
+                position: 'absolute',
+                top: props.state.minimum ? props.state.y + props.state.height/2 : forceMaximum || props.state.maximum ? 0 : props.state.y,
+                left: props.state.minimum ? props.state.x + props.state.width/2 : forceMaximum || props.state.maximum ? 0 : props.state.x,
+                zIndex: props.state.z,
+                width: props.state.minimum ? 0 : forceMaximum || props.state.maximum ? '100%' : props.state.width,
+                height: props.state.minimum ? 0 : forceMaximum || props.state.maximum ? '100%' : props.state.height,
+                display: 'flex',
+                flexDirection: 'column',
+                background: 'rgb(221,227,233)',
+                overflow: 'hidden',
+                transitionProperty: isNaN(pos.current.x) ? 'all': 'none', // 拖动时禁用动画
+                transitionDuration: '100ms',
+                transitionTimingFunction: 'ease',
+            }}
+            onMouseDown={() => {
+                props.onClick?.();
+            }}
+            onTouchStart={() => {
+                props.onClick?.();
+            }}
+        >
+            <Box display='flex' alignItems='center' sx={{userSelect:'none'}}>
                 
-                <Box flexGrow={1} sx={{position:'relative', overflow:'hidden'}}>
-                    <Box sx={{width:'100%', height:'100%', overflow:'auto'}}>
-                        {
-                            props.state.children ? 
-                            props.state.children :
-                            <iframe 
-                                ref={iframeRef}
-                                style={{width:'100%', height:'100%',verticalAlign:'bottom',margin:0, padding:0, border:0,userSelect:'none'}} 
-                                src={props.state.url}
-                            />
+                <Box flexGrow={1} display='flex' alignItems='center' 
+                    onMouseDown={(ev:any) => {
+                        props.onClick?.();
+                        if (forceMaximum || props.state.maximum) {
+                            return;
                         }
-                        
-                        {/* 一个透明图层，用于捕获事件 */}
-                        {(!isNaN(pos.current.x) || !props.state.focus) ? <Box sx={{position:'absolute',top:0,left:0,bottom:0,right:0,userSelect:'none',background:'rgba(0,0,0,0.1)'}}/> : <></>}
-                    </Box>
+
+                        pos.current.x = ev.clientX; 
+                        pos.current.y = ev.clientY;
+                        document.addEventListener("mousemove", mouseMove);
+
+                        const mouseUp = () => {
+                            props.onClick?.();
+                            pos.current.x = NaN; 
+                            pos.current.y = NaN;
+                            document.removeEventListener("mousemove", mouseMove);
+                            document.removeEventListener("mouseup", mouseUp);
+                        }
+                        document.addEventListener("mouseup", mouseUp);
+                    }}
+
+                    onTouchStart={(ev:any) => {
+                        props.onClick?.();
+                        if (forceMaximum || props.state.maximum) {
+                            return;
+                        }
+
+                        pos.current.x = ev.touches[0].clientX; 
+                        pos.current.y = ev.touches[0].clientY;
+                        document.addEventListener("touchmove", touchMove);
+
+                        const touchUp = () => {
+                            props.onClick?.();
+                            pos.current.x = NaN; 
+                            pos.current.y = NaN;
+                            document.removeEventListener("touchmove", touchMove);
+                            document.removeEventListener("touchend", touchUp);
+                            document.removeEventListener("touchcancel", touchUp);
+                        }
+                        document.addEventListener("touchend", touchUp);
+                        document.addEventListener("touchcancel", touchUp);
+                    }}
+                >
+                    <img style={{width:32, height:32, paddingLeft:8, paddingRight:8}} src={props.state.icon}></img>
+                    <Typography>{props.state.title}</Typography>
                 </Box>
-            </Paper>
-        </Fade>
+
+                {
+                    props.state.url ? 
+                    <IconButton href={props.state.url} target="_blank">
+                        <OpenInNewIcon color="primary"/>
+                    </IconButton>
+                    :
+                    <></>
+                }
+
+                <IconButton onClick={()=>props.onMimimum?.(true)}>
+                    <ExpandMoreIcon color="primary"/>
+                </IconButton>
+
+                {
+                    forceMaximum ? <></> :
+                    <IconButton onClick={()=>props.onMaximum?.(!props.state.maximum)}>
+                        {props.state.maximum ? <UnfoldLessIcon  color="primary"/> : <UnfoldMoreIcon  color="primary"/>}
+                    </IconButton>
+                }
+                
+                <IconButton onClick={()=>props.onClose?.()}>
+                    <CloseIcon color="error"/>
+                </IconButton>
+            </Box>
+            
+            <Box flexGrow={1} sx={{position:'relative', overflow:'hidden'}}>
+                <Box sx={{width:'100%', height:'100%', overflow:'auto'}}>
+                    {
+                        props.state.children ? 
+                        props.state.children :
+                        <iframe 
+                            ref={iframeRef}
+                            style={{width:'100%', height:'100%',verticalAlign:'bottom',margin:0, padding:0, border:0,userSelect:'none'}} 
+                            src={props.state.url}
+                        />
+                    }
+                    
+                    {/* 一个透明图层，用于捕获事件 */}
+                    {(!isNaN(pos.current.x) || !props.state.focus) ? <Box sx={{position:'absolute',top:0,left:0,bottom:0,right:0,userSelect:'none',background:'rgba(0,0,0,0.1)'}}/> : <></>}
+                </Box>
+            </Box>
+        </Paper>
     )
 }
