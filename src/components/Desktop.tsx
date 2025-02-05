@@ -24,7 +24,7 @@ export default function Desktop(props:DesktopProps) {
         } else {
             focusTop();
         }
-    }, [launcherOpen, windows])
+    }, [launcherOpen])
 
     const getFocusWindowIndex = useCallback(() => {
         let focusWindowIndex = -1;
