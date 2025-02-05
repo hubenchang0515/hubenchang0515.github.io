@@ -8,6 +8,7 @@ import { ApplicationProps } from "../features/Application";
 export interface DesktopProps {
     background: string;
     apps?: ApplicationProps[];
+    onExit?:()=>void;
 }
 
 export default function Desktop(props:DesktopProps) {
@@ -182,7 +183,15 @@ export default function Desktop(props:DesktopProps) {
                         )
                     })
                 }
-                <Launcher open={launcherOpen} items={props.apps} onAppClick={launch}/>
+                <Launcher open={launcherOpen} items={props.apps} onAppClick={launch} 
+                    onUserButtonClick={() => {
+                        // TODO: 用户登录
+                    }}
+                    onCloseButtonClick={() => {
+                        setWindows([]);
+                        props.onExit?.();
+                    }}
+                />
             </Box>
             <Dock 
                 items={windows}

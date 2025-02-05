@@ -10,6 +10,7 @@ import GitHubIcon from '@mui/icons-material/GitHub';
 export interface LauncherProps {
     open?: boolean;
     items?: ApplicationProps[];
+    onUserButtonClick?: ()=>void;
     onCloseButtonClick?: ()=>void;
     onAppClick?: (app:ApplicationProps)=>void;
 }
@@ -44,7 +45,7 @@ export function Launcher(props:LauncherProps) {
                         <GitHubIcon/>
                     </IconButton>
                     <Box flexGrow={1}/>
-                    <IconButton onClick={props.onCloseButtonClick}>
+                    <IconButton onClick={props.onUserButtonClick}>
                         <PersonIcon/>
                     </IconButton>
                     <IconButton onClick={props.onCloseButtonClick}>
