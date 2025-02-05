@@ -8,6 +8,7 @@ export interface DockButtonProps {
     focus?: boolean
     onClick?: ()=>void;
     children?: React.ReactNode;
+    background?: string;
 }
 
 export default function DockButton(props:DockButtonProps) {
@@ -16,7 +17,7 @@ export default function DockButton(props:DockButtonProps) {
             className="dock-button"
             sx={{
                 borderRadius:32,
-                background:"rgb(237,242,250)"
+                background:props.background,
             }}
         >
             <Tooltip title={props.title} arrow>
