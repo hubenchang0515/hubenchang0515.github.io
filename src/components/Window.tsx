@@ -13,8 +13,8 @@ export interface WindowState {
     x: number;
     y: number;
     z: number;
-    width: number|string;
-    height: number|string;
+    width: number;
+    height: number;
     minimum?: boolean;
     maximum?: boolean;
     focus?: boolean;
@@ -57,19 +57,21 @@ export function Window(props:WindowProps) {
         props.onMove?.(props.state.x + dx, props.state.y + dy);
     }, [props.onMove]);
 
+    const forceMaximum:boolean = document.documentElement.clientWidth <= props.state.width || document.documentElement.clientHeight - 64 <= props.state.height;
 
     return (
         <Fade in={!props.state.minimum}>
             <Paper 
                 className="window"
                 elevation={12}
+                square={props.state.maximum}
                 sx={{
                     position: 'absolute',
-                    top: props.state.maximum ? 0 : props.state.y,
-                    left: props.state.maximum ? 0 : props.state.x,
+                    top: forceMaximum || props.state.maximum ? 0 : props.state.y,
+                    left: forceMaximum || props.state.maximum ? 0 : props.state.x,
                     zIndex: props.state.z,
-                    width: props.state.maximum ? '100%' : props.state.width,
-                    height: props.state.maximum ? '100%' : props.state.height,
+                    width: forceMaximum || props.state.maximum ? '100%' : props.state.width,
+                    height: forceMaximum || props.state.maximum ? '100%' : props.state.height,
                     display: 'flex',
                     flexDirection: 'column',
                     background: 'rgb(221,227,233)'
@@ -81,50 +83,64 @@ export function Window(props:WindowProps) {
                     props.onClick?.();
                 }}
             >
-                <Box display='flex' alignItems='center' sx={{userSelect:'none'}}
-                    onMouseDown={(ev:any) => {
-                        props.onClick?.();
-                        pos.current.x = ev.clientX; 
-                        pos.current.y = ev.clientY;
-                        document.addEventListener("mousemove", mouseMove);
-
-                        const mouseUp = () => {
+                <Box display='flex' alignItems='center' sx={{userSelect:'none'}}>
+                    
+                    <Box flexGrow={1} display='flex' alignItems='center' 
+                        onMouseDown={(ev:any) => {
                             props.onClick?.();
-                            pos.current.x = NaN; 
-                            pos.current.y = NaN;
-                            document.removeEventListener("mousemove", mouseMove);
-                            document.removeEventListener("mouseup", mouseUp);
-                        }
-                        document.addEventListener("mouseup", mouseUp);
-                    }}
+                            if (forceMaximum || props.state.maximum) {
+                                return;
+                            }
 
-                    onTouchStart={(ev:any) => {
-                        props.onClick?.();
-                        pos.current.x = ev.touches[0].clientX; 
-                        pos.current.y = ev.touches[0].clientY;
-                        document.addEventListener("touchmove", touchMove);
-
-                        const touchUp = () => {
+                            pos.current.x = ev.clientX; 
+                            pos.current.y = ev.clientY;
+                            document.addEventListener("mousemove", mouseMove);
+    
+                            const mouseUp = () => {
+                                props.onClick?.();
+                                pos.current.x = NaN; 
+                                pos.current.y = NaN;
+                                document.removeEventListener("mousemove", mouseMove);
+                                document.removeEventListener("mouseup", mouseUp);
+                            }
+                            document.addEventListener("mouseup", mouseUp);
+                        }}
+    
+                        onTouchStart={(ev:any) => {
                             props.onClick?.();
-                            pos.current.x = NaN; 
-                            pos.current.y = NaN;
-                            document.removeEventListener("touchmove", touchMove);
-                            document.removeEventListener("touchend", touchUp);
-                            document.removeEventListener("touchcancel", touchUp);
-                        }
-                        document.addEventListener("touchend", touchUp);
-                        document.addEventListener("touchcancel", touchUp);
-                    }}
-                >
-                    <img style={{width:32, height:32, paddingLeft:8, paddingRight:8}} src={props.state.icon}></img>
-                    <Typography>{props.state.title}</Typography>
-                    <Box flexGrow={1}/>
+                            if (forceMaximum || props.state.maximum) {
+                                return;
+                            }
+
+                            pos.current.x = ev.touches[0].clientX; 
+                            pos.current.y = ev.touches[0].clientY;
+                            document.addEventListener("touchmove", touchMove);
+    
+                            const touchUp = () => {
+                                props.onClick?.();
+                                pos.current.x = NaN; 
+                                pos.current.y = NaN;
+                                document.removeEventListener("touchmove", touchMove);
+                                document.removeEventListener("touchend", touchUp);
+                                document.removeEventListener("touchcancel", touchUp);
+                            }
+                            document.addEventListener("touchend", touchUp);
+                            document.addEventListener("touchcancel", touchUp);
+                        }}
+                    >
+                        <img style={{width:32, height:32, paddingLeft:8, paddingRight:8}} src={props.state.icon}></img>
+                        <Typography>{props.state.title}</Typography>
+                    </Box>
                     <IconButton onClick={()=>props.onMimimum?.(true)}>
                         <ExpandMoreIcon color="primary"/>
                     </IconButton>
-                    <IconButton onClick={()=>props.onMaximum?.(!props.state.maximum)}>
-                        {props.state.maximum ? <UnfoldLessIcon  color="primary"/> : <UnfoldMoreIcon  color="primary"/>}
-                    </IconButton>
+                    {
+                        forceMaximum ? <></> :
+                        <IconButton onClick={()=>props.onMaximum?.(!props.state.maximum)}>
+                            {props.state.maximum ? <UnfoldLessIcon  color="primary"/> : <UnfoldMoreIcon  color="primary"/>}
+                        </IconButton>
+                    }
+                    
                     <IconButton onClick={()=>props.onClose?.()}>
                         <CloseIcon color="error"/>
                     </IconButton>
