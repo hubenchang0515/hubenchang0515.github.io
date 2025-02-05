@@ -32,7 +32,7 @@ export default function Dock(props:DockProps) {
                 paddingX: 1,
             }}
         >
-            <DockButton title="Launcher" icon='launcher.svg' background="#fff" onClick={props.onLaunchClicked}/>
+            <DockButton title="Launcher" icon='icons/launcher.svg' background="#fff" onClick={props.onLaunchClicked}/>
             <Box flexGrow={1}/>
             <Box
                 component={TransitionGroup}
