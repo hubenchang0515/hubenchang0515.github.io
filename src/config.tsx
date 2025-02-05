@@ -1,4 +1,5 @@
 import { ApplicationProps } from "./features/Application";
+import Discuss from "./components/Discuss";
 
 export const APPS:ApplicationProps[] = [
     {
@@ -21,4 +22,16 @@ export const APPS:ApplicationProps[] = [
         url: 'https://hubenchang0515.github.io/moe-tools/',
         subtitle: 'Versatile online toolset',
     },
+
+    {
+        title: 'Discuss',
+        icon: 'https://avatars.githubusercontent.com/in/106117',
+        subtitle: 'Discussions',
+        children: <Discuss/>
+    },
 ]
+
+export const AUTH = {
+    CLIENT_ID: "Iv23liNpcW8LG11yMI8M",
+    CLIENT_SECRET: "635377fcadca3598890563274e7ee7b7a5aa019c",
+}

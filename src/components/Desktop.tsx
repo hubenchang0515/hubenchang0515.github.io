@@ -44,6 +44,7 @@ export default function Desktop(props:DesktopProps) {
             return;
         }
 
+        setLauncherOpen(false);
         minimumWindow(index, false);
 
         let maxZ = 1;
