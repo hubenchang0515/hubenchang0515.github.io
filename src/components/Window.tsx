@@ -1,6 +1,8 @@
 import { Fade, IconButton, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
 import React, { useCallback, useRef } from "react";
+
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import UnfoldLessIcon from '@mui/icons-material/UnfoldLess';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
@@ -134,9 +136,20 @@ export function Window(props:WindowProps) {
                         <img style={{width:32, height:32, paddingLeft:8, paddingRight:8}} src={props.state.icon}></img>
                         <Typography>{props.state.title}</Typography>
                     </Box>
+
+                    {
+                        props.state.url ? 
+                        <IconButton href={props.state.url} target="_blank">
+                            <OpenInNewIcon color="primary"/>
+                        </IconButton>
+                        :
+                        <></>
+                    }
+
                     <IconButton onClick={()=>props.onMimimum?.(true)}>
                         <ExpandMoreIcon color="primary"/>
                     </IconButton>
+
                     {
                         forceMaximum ? <></> :
                         <IconButton onClick={()=>props.onMaximum?.(!props.state.maximum)}>
@@ -152,14 +165,13 @@ export function Window(props:WindowProps) {
                 <Box flexGrow={1} sx={{position:'relative', overflow:'hidden'}}>
                     <Box sx={{width:'100%', height:'100%', overflow:'auto'}}>
                         {
-                            props.state.url ? 
+                            props.state.children ? 
+                            props.state.children :
                             <iframe 
                                 ref={iframeRef}
                                 style={{width:'100%', height:'100%',verticalAlign:'bottom',margin:0, padding:0, border:0,userSelect:'none'}} 
                                 src={props.state.url}
                             />
-                            :
-                            props.state.children
                         }
                         
                         {/* 一个透明图层，用于捕获事件 */}
