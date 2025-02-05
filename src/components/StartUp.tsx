@@ -1,12 +1,15 @@
 
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
-import { Box, Button, Typography } from '@mui/material';
+import { Box, IconButton } from '@mui/material';
 
-export interface StartProps {
+export type StartUpState = 'executing' | 'exiting'
+
+export interface StartUpProps {
+    state?:StartUpState;
     onClick?:()=>void;
 }
 
-export default function Start(props:StartProps) {
+export default function StartUp(props:StartUpProps) {
     return (
         <Box 
             className='start'
@@ -25,10 +28,9 @@ export default function Start(props:StartProps) {
                 margin:0, 
             }}
         >
-            <Button color='error' sx={{display:'flex', flexDirection:'column'}} onClick={props.onClick}>
-                <PowerSettingsNewIcon sx={{width:128, height:128}}/>
-                <Typography variant='h6'>Start</Typography>
-            </Button>
+            <IconButton onClick={props.onClick} disabled={props.state === 'executing'}>
+                <PowerSettingsNewIcon sx={{width:128, height:128, color:props.state === 'executing' ? '#0F0' : '#F00'}}/>
+            </IconButton>
         </Box>
     )
 }
