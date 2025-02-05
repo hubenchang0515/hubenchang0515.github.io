@@ -31,6 +31,7 @@ export function Launcher(props:LauncherProps) {
                     zIndex: 9999,
                     display: 'flex'
                 }}
+                onClick={(ev)=>{ev.stopPropagation()}}
             >
                 <Box 
                     sx={{
