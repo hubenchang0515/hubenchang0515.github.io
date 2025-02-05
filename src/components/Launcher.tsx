@@ -1,10 +1,11 @@
 import { Fade, IconButton } from "@mui/material";
 import { Box } from "@mui/system";
 import LauncherItem from "./LauncherItem";
+import { ApplicationProps } from "../features/Application";
 
 import PowerSettingsNewIcon from '@mui/icons-material/PowerSettingsNew';
 import PersonIcon from '@mui/icons-material/Person';
-import { ApplicationProps } from "../features/Application";
+import GitHubIcon from '@mui/icons-material/GitHub';
 
 export interface LauncherProps {
     open?: boolean;
@@ -25,7 +26,7 @@ export function Launcher(props:LauncherProps) {
                     bottom: 0,
                     left: 0,
                     width: document.documentElement.clientWidth >= 960 ? 480 : '100%',
-                    height: document.documentElement.clientHeight - 64 >= 720 ? 720 : '100%', // 64 是 Dock 的高度
+                    height: document.documentElement.clientWidth >= 960 && document.documentElement.clientHeight - 64 >= 720 ? 720 : '100%', // 64 是 Dock 的高度
                     zIndex: 9999,
                     display: 'flex'
                 }}
@@ -39,6 +40,9 @@ export function Launcher(props:LauncherProps) {
                         background: 'rgba(255, 255, 255, 0.8)',
                     }}
                 >
+                    <IconButton href="https://github.com/hubenchang0515/hubenchang0515.github.io" target="_blank">
+                        <GitHubIcon/>
+                    </IconButton>
                     <Box flexGrow={1}/>
                     <IconButton onClick={props.onCloseButtonClick}>
                         <PersonIcon/>
