@@ -149,22 +149,22 @@ export function Window(props:WindowProps) {
                     </IconButton>
                 </Box>
                 
-                <Box flexGrow={1} sx={{position:'relative', overflow:'auto',}}>
-                    {
-                        props.state.url ? 
-                        <>
+                <Box flexGrow={1} sx={{position:'relative', overflow:'hidden'}}>
+                    <Box sx={{width:'100%', height:'100%', overflow:'auto'}}>
+                        {
+                            props.state.url ? 
                             <iframe 
                                 ref={iframeRef}
                                 style={{width:'100%', height:'100%',verticalAlign:'bottom',margin:0, padding:0, border:0,userSelect:'none'}} 
                                 src={props.state.url}
                             />
-                            
-                            {/* 一个透明图层，用于捕获事件 */}
-                            {(!isNaN(pos.current.x) || !props.state.focus) ? <Box sx={{position:'absolute',top:0,left:0,bottom:0,right:0,userSelect:'none',background:'rgba(0,0,0,0.2)'}}/> : <></>}
-                        </>
-                        :
-                        props.state.children
-                    }
+                            :
+                            props.state.children
+                        }
+                        
+                        {/* 一个透明图层，用于捕获事件 */}
+                        {(!isNaN(pos.current.x) || !props.state.focus) ? <Box sx={{position:'absolute',top:0,left:0,bottom:0,right:0,userSelect:'none',background:'rgba(0,0,0,0.1)'}}/> : <></>}
+                    </Box>
                 </Box>
             </Paper>
         </Fade>
