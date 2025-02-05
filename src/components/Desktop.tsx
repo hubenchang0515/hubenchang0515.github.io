@@ -109,9 +109,22 @@ export default function Desktop(props:DesktopProps) {
         focusTop();
     }, [windows]);
 
+    const winId = useCallback((() => {
+        let _winId = 0;
+        return () => {
+            if (_winId >= 9999) {
+                _winId = 1;
+            } else {
+                _winId = _winId + 1;
+            }
+            return _winId;
+        }
+    })(), []);
+
     const launch = useCallback((app:ApplicationProps) => {
         const index = getFocusWindowIndex();
         const window:WindowState = {
+            id: winId(),
             icon: app.icon,
             title: app.title,
             url: app.url,
@@ -145,7 +158,7 @@ export default function Desktop(props:DesktopProps) {
                 flexDirection:'column',
             }}
         >
-            <Box 
+            <Box
                 sx={{
                     position:'relative',
                     flexGrow: 1
@@ -154,15 +167,17 @@ export default function Desktop(props:DesktopProps) {
             >
                 {
                     windows.map((window, index) => {
-                        return <Window 
-                                    key={index} 
-                                    state={window} 
-                                    onClick={()=>{focusWindow(index)}} 
-                                    onMove={(x,y) => moveWindow(index, x, y)}
-                                    onMimimum={(minimum) => minimumWindow(index, minimum)}
-                                    onMaximum={(maximum) => maximumWindow(index, maximum)}
-                                    onClose={() => closeWindow(index)}
-                                />
+                        return (
+                            <Window
+                                key={window.id}
+                                state={window} 
+                                onClick={()=>{focusWindow(index)}} 
+                                onMove={(x,y) => moveWindow(index, x, y)}
+                                onMimimum={(minimum) => minimumWindow(index, minimum)}
+                                onMaximum={(maximum) => maximumWindow(index, maximum)}
+                                onClose={() => closeWindow(index)}
+                            /> 
+                        )
                     })
                 }
                 <Launcher open={launcherOpen} items={props.apps} onAppClick={launch}/>

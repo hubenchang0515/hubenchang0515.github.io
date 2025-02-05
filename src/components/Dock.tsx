@@ -1,12 +1,14 @@
-import { Box } from "@mui/material";
+import { Box, Zoom } from "@mui/material";
 import DockItem from "./DockItem";
 import DockButton from "./DockButton";
 import  TimeView  from "./TimeView";
+import { TransitionGroup } from "react-transition-group";
 
 export interface DockItem {
-    title: string,
-    icon: string,
-    focus?: boolean,
+    id:number;
+    title: string;
+    icon: string;
+    focus?: boolean;
 }
 
 export interface DockProps {
@@ -33,6 +35,7 @@ export default function Dock(props:DockProps) {
             <DockButton title="Launcher" icon='launcher.svg' background="#fff" onClick={props.onLaunchClicked}/>
             <Box flexGrow={1}/>
             <Box
+                component={TransitionGroup}
                 sx={{
                     display:'flex',
                     alignItems: 'center',
@@ -43,7 +46,7 @@ export default function Dock(props:DockProps) {
             >
                 {
                     props.items?.map((item, index) => {
-                        return <DockItem key={index} title={item.title} icon={item.icon} focus={item.focus} onClick={()=>props.onItemClick?.(index)}/>
+                        return <Zoom key={item.id}><Box><DockItem title={item.title} icon={item.icon} focus={item.focus} onClick={()=>props.onItemClick?.(index)}/></Box></Zoom>
                     })
                 }
             </Box>

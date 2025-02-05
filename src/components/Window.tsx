@@ -7,6 +7,7 @@ import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import CloseIcon from '@mui/icons-material/Close';
 
 export interface WindowState {
+    id: number;
     icon: string;
     title: string;
     url: string;
