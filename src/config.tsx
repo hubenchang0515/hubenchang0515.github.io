@@ -26,6 +26,7 @@ export const APPS:ApplicationProps[] = [
     {
         title: 'Discuss',
         icon: 'https://avatars.githubusercontent.com/in/106117',
+        url: 'https://github.com/hubenchang0515/hubenchang0515.github.io/discussions',
         subtitle: 'Discussions',
         children: <Discuss/>
     },
