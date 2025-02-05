@@ -24,8 +24,8 @@ export function Launcher(props:LauncherProps) {
                     position:'absolute',
                     bottom: 0,
                     left: 0,
-                    width: {xs:'100%', md:'480px'},
-                    height: {xs:'100%', lg:'720px'},
+                    width: document.documentElement.clientWidth >= 960 ? 480 : '100%',
+                    height: document.documentElement.clientHeight - 64 >= 720 ? 720 : '100%', // 64 是 Dock 的高度
                     zIndex: 9999,
                     display: 'flex'
                 }}
@@ -36,10 +36,10 @@ export function Launcher(props:LauncherProps) {
                         display:'flex',
                         flexDirection:'column',
                         alignItems:'center',
-                        justifyContent:'end',
                         background: 'rgba(255, 255, 255, 0.8)',
                     }}
                 >
+                    <Box flexGrow={1}/>
                     <IconButton onClick={props.onCloseButtonClick}>
                         <PersonIcon/>
                     </IconButton>
