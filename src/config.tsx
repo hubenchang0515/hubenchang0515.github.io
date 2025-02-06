@@ -53,8 +53,7 @@ export const TRAYS:DockTrayItemProps[] = [
         app: {
             title: '萌ICP备20250515号',
             icon: 'https://travel.moe/images/ico64.png',
-            component: Browser,
-            componentProps: {defaultUrl: "https://icp.gov.moe/?keyword=20250515"},
+            url: 'https://icp.gov.moe/?keyword=20250515',
         },
     },
 ];
