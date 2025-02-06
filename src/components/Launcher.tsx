@@ -62,7 +62,8 @@ export function Launcher(props:LauncherProps) {
                         display:'flex',
                         flexDirection:'column',
                         alignItems:'center',
-                        background: 'rgba(255, 255, 255, 0.8)',
+                        background: 'rgb(255,255,255,0.6)',
+                        backdropFilter: 'blur(10px)',
                     }}
                 >
                     <IconButton href="https://github.com/hubenchang0515/hubenchang0515.github.io" target="_blank">
@@ -85,7 +86,8 @@ export function Launcher(props:LauncherProps) {
                         display:'flex',
                         flexDirection:'column',
                         overflow:'auto',
-                        background: 'rgba(255, 255, 255, 0.7)',
+                        background: 'rgb(255,255,255,0.5)',
+                        backdropFilter: 'blur(10px)',
                     }}
                 >
                     {

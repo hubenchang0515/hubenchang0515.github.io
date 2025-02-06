@@ -24,7 +24,7 @@ export default function LauncherItem(props:LauncherItemProps) {
             <img width={32} height={32}  src={props.app.icon}/>
             <Box>
                 <Typography variant="h6" align="left" color="primary">{props.app.title}</Typography>
-                <Typography variant="body2" align="left" color="gray">{props.app.subtitle}</Typography>
+                <Typography variant="body2" align="left" color="black">{props.app.subtitle}</Typography>
             </Box>
         </Box>
     )
