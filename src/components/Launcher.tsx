@@ -24,8 +24,18 @@ export function Launcher(props:LauncherProps) {
     useEffect(() => {
         if (fullscreen) {
             document.documentElement.requestFullscreen();
-        } else {
+        } else if (document.fullscreenElement) {
             document.exitFullscreen();
+        }
+
+        const callback = () => {
+            setFullscreen(!!document.fullscreenElement);
+        }
+
+        document.addEventListener('fullscreenchange', callback);
+
+        return () => {
+            document.removeEventListener('fullscreenchange', callback);
         }
     }, [fullscreen]);
 
