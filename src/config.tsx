@@ -30,7 +30,6 @@ export const APPS:ApplicationProps[] = [
     {
         title: 'Browser',
         icon: 'icons/browser.svg',
-        url: 'https://github.com/hubenchang0515/hubenchang0515.github.io/discussions',
         subtitle: 'Simple Browser in iframe',
         component: Browser,
         componentProps: {defaultUrl: "https://www.google.com/?igu=1"},
@@ -54,7 +53,6 @@ export const TRAYS:DockTrayItemProps[] = [
         app: {
             title: '萌ICP备20250515号',
             icon: 'https://travel.moe/images/ico64.png',
-            url: 'https://github.com/hubenchang0515/hubenchang0515.github.io/discussions',
             component: Browser,
             componentProps: {defaultUrl: "https://icp.gov.moe/?keyword=20250515"},
         },
