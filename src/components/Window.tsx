@@ -103,7 +103,8 @@ export function Window(props:WindowProps) {
                 height: props.state.minimum ? 0 : forceMaximum || props.state.maximum ? '100%' : props.state.height,
                 display: 'flex',
                 flexDirection: 'column',
-                background: 'rgb(221,227,233)',
+                background: forceMaximum || props.state.maximum ? 'rgb(221,227,233)' : 'rgba(255,255,255,0.7)',
+                backdropFilter: 'blur(10px)',
                 overflow: 'hidden',
                 transitionProperty: isNaN(pos.current.x) ? 'all': 'none', // 拖动时禁用动画
                 transitionDuration: '200ms',
@@ -190,7 +191,7 @@ export function Window(props:WindowProps) {
                 </IconButton>
             </Box>
             
-            <Box flexGrow={1} sx={{position:'relative', overflow:'hidden'}}>
+            <Box flexGrow={1} sx={{position:'relative', overflow:'hidden', background:'#fff'}}>
                 <Box sx={{width:'100%', height:'100%', overflow:'auto', display:mask?'none':'block', }}>
                     {
                         props.state.children ? 
