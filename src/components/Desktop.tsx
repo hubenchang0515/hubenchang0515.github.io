@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { Box, Fade } from "@mui/material";
 import Dock from "./Dock";
 import { Window, WindowState } from "./Window";
@@ -124,14 +124,14 @@ export default function Desktop(props:DesktopProps) {
         }
     })(), []);
 
-    const launch = useCallback((app:ApplicationProps) => {
+    const launch = useCallback((app:ApplicationProps, componentProps?:any) => {
         const index = getFocusWindowIndex();
         const window:WindowState = {
             id: winId(),
             icon: app.icon,
             title: app.title,
             url: app.url,
-            children: app.children,
+            children: app.component ? React.createElement(app.component, componentProps??app.componentProps) : undefined,
             x: index >= 0 ? windows[index].x + 20 : 100,
             y: index >= 0 ? windows[index].y + 20 : 100,
             z: index >= 0 ? windows[index].z + 1 : 1,

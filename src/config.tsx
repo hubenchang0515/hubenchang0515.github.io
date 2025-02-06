@@ -30,7 +30,9 @@ export const APPS:ApplicationProps[] = [
         icon: 'icons/browser.svg',
         url: 'https://github.com/hubenchang0515/hubenchang0515.github.io/discussions',
         subtitle: 'Simple Browser in iframe',
-        children: <Browser defaultUrl="https://www.google.com/?igu=1"/>
+        component: Browser,
+        componentProps: {defaultUrl: "https://www.google.com/?igu=1"}
+
     },
 
     {
@@ -38,7 +40,7 @@ export const APPS:ApplicationProps[] = [
         icon: 'https://avatars.githubusercontent.com/in/106117',
         url: 'https://github.com/hubenchang0515/hubenchang0515.github.io/discussions',
         subtitle: 'Discussions',
-        children: <Discuss/>
+        component: Discuss,
     },
 ]
 
