@@ -62,7 +62,7 @@ export function Launcher(props:LauncherProps) {
                         display:'flex',
                         flexDirection:'column',
                         alignItems:'center',
-                        background: 'rgb(255,255,255,0.6)',
+                        background: 'rgba(255,255,255,0.6)',
                         backdropFilter: 'blur(10px)',
                     }}
                 >
@@ -86,7 +86,7 @@ export function Launcher(props:LauncherProps) {
                         display:'flex',
                         flexDirection:'column',
                         overflow:'auto',
-                        background: 'rgb(255,255,255,0.5)',
+                        background: 'rgba(255,255,255,0.5)',
                         backdropFilter: 'blur(10px)',
                     }}
                 >

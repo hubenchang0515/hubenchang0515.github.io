@@ -29,7 +29,7 @@ export default function Dock(props:DockProps) {
                 zIndex: 9999,
                 with: '100%',
                 height: 64,
-                background: 'rgb(255,255,255,0.7)',
+                background: 'rgba(255,255,255,0.7)',
                 backdropFilter: 'blur(10px)',
                 display: 'flex',
                 flexDirection: 'row',
