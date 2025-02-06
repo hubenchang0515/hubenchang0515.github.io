@@ -13,7 +13,7 @@ export interface DockItemProps {
 export default function DockItem(props:DockItemProps) {
     return (
         <Box className="dock-icon">
-            <Tooltip title={props.title} arrow>
+            <Tooltip title={props.title}>
                 <Button 
                     variant='text'
                     sx={{
