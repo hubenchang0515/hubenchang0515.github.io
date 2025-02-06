@@ -161,7 +161,7 @@ export function Window(props:WindowProps) {
                         document.addEventListener("touchcancel", touchUp);
                     }}
                 >
-                    <img style={{width:32, height:32, paddingLeft:8, paddingRight:8}} src={props.state.icon}></img>
+                    <img style={{width:32, height:32, paddingLeft:8, paddingRight:8}} draggable='false' src={props.state.icon}></img>
                     <Typography>{props.state.title}</Typography>
                 </Box>
 
