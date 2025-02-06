@@ -1,7 +1,9 @@
 import { ApplicationProps } from "./features/Application";
 import Discuss from "./components/Discuss";
 import Browser from "./components/Browser";
+import { DockTrayItemProps } from "./components/DockTrayItem";
 
+// 应用列表
 export const APPS:ApplicationProps[] = [
     {
         title: 'Qt Theme',
@@ -31,7 +33,7 @@ export const APPS:ApplicationProps[] = [
         url: 'https://github.com/hubenchang0515/hubenchang0515.github.io/discussions',
         subtitle: 'Simple Browser in iframe',
         component: Browser,
-        componentProps: {defaultUrl: "https://www.google.com/?igu=1"}
+        componentProps: {defaultUrl: "https://www.google.com/?igu=1"},
 
     },
 
@@ -42,9 +44,26 @@ export const APPS:ApplicationProps[] = [
         subtitle: 'Discussions',
         component: Discuss,
     },
-]
+];
 
+// 托盘列表
+export const TRAYS:DockTrayItemProps[] = [
+    {
+        icon:'https://travel.moe/images/ico64.png',
+        title:'萌ICP备20250515号',
+        app: {
+            title: '萌ICP备20250515号',
+            icon: 'https://travel.moe/images/ico64.png',
+            url: 'https://github.com/hubenchang0515/hubenchang0515.github.io/discussions',
+            component: Browser,
+            componentProps: {defaultUrl: "https://icp.gov.moe/?keyword=20250515"},
+        },
+    },
+];
+
+
+// GitHub 登录公钥
 export const AUTH = {
     CLIENT_ID: "Iv23liNpcW8LG11yMI8M",
     CLIENT_SECRET: "635377fcadca3598890563274e7ee7b7a5aa019c",
-}
+};
