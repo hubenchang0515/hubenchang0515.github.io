@@ -5,10 +5,12 @@ import { Window, WindowState } from "./Window";
 import { Launcher } from "./Launcher";
 import { ApplicationProps } from "../features/Application";
 import { TransitionGroup } from "react-transition-group";
+import { DockTrayItemProps } from "./DockTrayItem";
 
 export interface DesktopProps {
     background: string;
     apps?: ApplicationProps[];
+    trays?: DockTrayItemProps[];
     onExit?:()=>void;
 }
 
@@ -149,6 +151,12 @@ export default function Desktop(props:DesktopProps) {
         setLauncherOpen(false);
     }, [windows]);
 
+    const onTrayClick = useCallback((index:number) => {
+        if (props.trays?.[index].app) {
+            launch(props.trays?.[index].app)
+        }
+    }, [launch]);
+
     return (
         <Box 
             className="desktop" 
@@ -199,8 +207,10 @@ export default function Desktop(props:DesktopProps) {
             </Box>
             <Dock 
                 items={windows}
+                trays={props.trays}
                 onLaunchClicked={()=>setLauncherOpen(!launcherOpen)} 
-                onItemClick={(index)=>focusWindow(index)}
+                onItemClick={focusWindow}
+                onTrayClick={onTrayClick}
             />
         </Box>
     )
