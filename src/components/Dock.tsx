@@ -3,6 +3,7 @@ import DockItem from "./DockItem";
 import DockButton from "./DockButton";
 import  TimeView  from "./TimeView";
 import { TransitionGroup } from "react-transition-group";
+import { WindowState } from "./Window";
 
 export interface DockItem {
     id:number;
@@ -12,7 +13,7 @@ export interface DockItem {
 }
 
 export interface DockProps {
-    items?: DockItem[];
+    items?: WindowState[];
     onLaunchClicked?: ()=>void;
     onItemClick?: (index:number)=>void;
 }
