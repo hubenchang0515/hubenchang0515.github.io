@@ -1,6 +1,6 @@
 import { IconButton, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import React, { Suspense, useCallback, useEffect, useRef, useState } from "react";
 
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
@@ -195,7 +195,7 @@ export function Window(props:WindowProps) {
                 <Box sx={{width:'100%', height:'100%', overflow:'auto', display:mask?'none':'block', }}>
                     {
                         props.state.children ? 
-                        props.state.children :
+                        <Suspense> {props.state.children} </Suspense> :
                         <iframe
                             style={{width:'100%', height:'100%',verticalAlign:'bottom',margin:0, padding:0, border:0,userSelect:'none'}} 
                             src={props.state.url}
