@@ -16,6 +16,7 @@
     "@giscus/react": "^3.1.0",
     "@mui/icons-material": "^6.4.2",
     "@mui/material": "^6.4.2",
+    "@mui/x-charts": "^7.25.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1"
   },

@@ -2,6 +2,7 @@ import { ApplicationProps } from "./features/Application";
 import Discuss from "./components/Discuss";
 import Browser from "./components/Browser";
 import { DockTrayItemProps } from "./components/DockTrayItem";
+import Monitor from "./components/Monitor";
 
 // 应用列表
 export const APPS:ApplicationProps[] = [
@@ -41,6 +42,13 @@ export const APPS:ApplicationProps[] = [
         component: Browser,
         componentProps: {defaultUrl: "https://www.google.com/?igu=1"},
 
+    },
+
+    {
+        title: 'Monitor',
+        icon: 'icons/monitor.svg',
+        subtitle: 'System Monitor',
+        component: Monitor,
     },
 
     {
