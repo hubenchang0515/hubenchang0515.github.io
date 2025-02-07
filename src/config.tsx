@@ -1,8 +1,10 @@
+import React from "react";
 import { ApplicationProps } from "./features/Application";
-import Discuss from "./components/Discuss";
-import Browser from "./components/Browser";
 import { DockTrayItemProps } from "./components/DockTrayItem";
-import Monitor from "./components/Monitor";
+
+const Discuss = React.lazy(() => import("./components/Discuss"))
+const Browser = React.lazy(() => import("./components/Browser"))
+const Monitor = React.lazy(() => import("./components/Monitor"))
 
 // 应用列表
 export const APPS:ApplicationProps[] = [

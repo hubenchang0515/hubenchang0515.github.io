@@ -1,4 +1,4 @@
-import { useCallback, useState } from "react"
+import { Suspense, useCallback, useState } from "react"
 import Desktop from "./components/Desktop"
 import StartUp, { StartUpState } from "./components/StartUp"
 import { APPS, TRAYS } from "./config"
@@ -21,7 +21,14 @@ function App() {
     }, []);
 
     return (
-        start ? <Desktop background="https://www.dmoe.cc/random.php" apps={APPS} trays={TRAYS} onExit={onExit}></Desktop> : <StartUp state={state} onClick={onStart}></StartUp>    
+        <Suspense>
+        {
+            start ? 
+            <Desktop background="https://www.dmoe.cc/random.php" apps={APPS} trays={TRAYS} onExit={onExit}></Desktop> 
+            : 
+            <StartUp state={state} onClick={onStart}></StartUp>    
+        }
+        </Suspense>
     )
 }
 
