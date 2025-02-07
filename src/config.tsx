@@ -21,6 +21,13 @@ export const APPS:ApplicationProps[] = [
     },
 
     {
+        title: 'Phosphophyllite',
+        icon: 'https://hubenchang0515.github.io/Phosphophyllite/static/favicon.svg',
+        url: 'https://hubenchang0515.github.io/Phosphophyllite/',
+        subtitle: 'Plan C\'s Blog',
+    },
+
+    {
         title: 'Moe Tools',
         icon: 'https://hubenchang0515.github.io/moe-tools/favicon.svg',
         url: 'https://hubenchang0515.github.io/moe-tools/',
