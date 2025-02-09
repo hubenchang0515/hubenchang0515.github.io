@@ -12,7 +12,7 @@ export default function DockTrayItem(props:DockTrayItemProps) {
     return (
         <Tooltip title={props.title}>
             <IconButton onClick={props.onClick}>
-                <img width={24} height={24} src={props.icon}/>
+                <img width={24} height={24} src={props.icon} draggable='false'/>
             </IconButton>
         </Tooltip>
     )

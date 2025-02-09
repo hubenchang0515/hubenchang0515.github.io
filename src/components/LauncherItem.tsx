@@ -21,7 +21,7 @@ export default function LauncherItem(props:LauncherItemProps) {
             }}
             onClick={props.onClick}
         >
-            <img width={32} height={32}  src={props.app.icon}/>
+            <img width={32} height={32}  src={props.app.icon} draggable='false'/>
             <Box>
                 <Typography variant="h6" align="left" color="primary">{props.app.title}</Typography>
                 <Typography variant="body2" align="left" color="black">{props.app.subtitle}</Typography>

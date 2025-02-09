@@ -20,7 +20,7 @@ export default function DockItem(props:DockItemProps) {
                         border: props.focus ? '1px solid rgb(33,150,243)' : '1px solid transparent'
                     }}
                     onClick={props.onClick}>
-                    <img width={32} height={32}  src={props.icon}/>
+                    <img width={32} height={32}  src={props.icon} draggable='false'/>
                 </Button>
             </Tooltip>
         </Box>
