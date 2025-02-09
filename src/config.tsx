@@ -54,6 +54,13 @@ export const APPS:ApplicationProps[] = [
     },
 
     {
+        title: "Friends",
+        subtitle: 'Friendship links',
+        icon: 'https://hubenchang0515.github.io/friends/favicon.svg',
+        url: 'https://hubenchang0515.github.io/friends/',
+    },
+
+    {
         title: 'Discuss',
         icon: 'https://avatars.githubusercontent.com/in/106117',
         url: 'https://github.com/hubenchang0515/hubenchang0515.github.io/discussions',
@@ -64,6 +71,16 @@ export const APPS:ApplicationProps[] = [
 
 // 托盘列表
 export const TRAYS:DockTrayItemProps[] = [
+    {
+        icon:'https://hubenchang0515.github.io/friends/favicon.svg',
+        title:'友情链接',
+        app: {
+            title: "Friends",
+            icon: 'https://hubenchang0515.github.io/friends/favicon.svg',
+            url: 'https://hubenchang0515.github.io/friends/',
+        },
+    },
+
     {
         icon:'https://travel.moe/images/ico64.png',
         title:'萌ICP备20250515号',
