@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Fade, IconButton } from "@mui/material";
 import { Box } from "@mui/system";
 import LauncherItem from "./LauncherItem";
@@ -8,11 +9,12 @@ import PersonIcon from '@mui/icons-material/Person';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import FullscreenIcon from '@mui/icons-material/Fullscreen';
 import FullscreenExitIcon from '@mui/icons-material/FullscreenExit';
-import { useEffect, useState } from "react";
+import InstallDesktopIcon from '@mui/icons-material/InstallDesktop';
 
 export interface LauncherProps {
     open?: boolean;
     items?: ApplicationProps[];
+    installPrompt?: Event;
     onUserButtonClick?: ()=>void;
     onCloseButtonClick?: ()=>void;
     onAppClick?: (app:ApplicationProps)=>void;
@@ -73,6 +75,13 @@ export function Launcher(props:LauncherProps) {
                     <IconButton onClick={props.onUserButtonClick}>
                         <PersonIcon/>
                     </IconButton>
+                    {
+                        props.installPrompt ? 
+                        <IconButton onClick={()=>{(props.installPrompt as any).prompt()}}>
+                            <InstallDesktopIcon/>
+                        </IconButton>
+                        : <></>
+                    }
                     <IconButton onClick={()=>setFullscreen(!fullscreen)}>
                         {fullscreen ? <FullscreenExitIcon/> : <FullscreenIcon/>}
                     </IconButton>

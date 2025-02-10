@@ -11,6 +11,7 @@ export interface DesktopProps {
     background: string;
     apps?: ApplicationProps[];
     trays?: DockTrayItemProps[];
+    installPrompt?: Event;
     onExit?:()=>void;
 }
 
@@ -195,7 +196,11 @@ export default function Desktop(props:DesktopProps) {
                         )
                     })
                 }
-                <Launcher open={launcherOpen} items={props.apps} onAppClick={launch} 
+                <Launcher 
+                    open={launcherOpen} 
+                    items={props.apps} 
+                    installPrompt={props.installPrompt}
+                    onAppClick={launch} 
                     onUserButtonClick={() => {
                         // TODO: 用户登录
                     }}
