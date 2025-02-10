@@ -84,7 +84,7 @@ export default function Monitor() {
                                     {
                                         data: [
                                             {id: 0, label: 'Used', color:'#f44336', value: (window.performance.memory as any).usedJSHeapSize},
-                                            {id: 1, label: 'Alloced', color:'#ff9800', value: (window.performance.memory as any).totalJSHeapSize - (window.performance.memory as any).usedJSHeapSize},
+                                            {id: 1, label: 'Allocated', color:'#ff9800', value: (window.performance.memory as any).totalJSHeapSize - (window.performance.memory as any).usedJSHeapSize},
                                             {id: 2, label: 'Free', color:'#2196f3', value: (window.performance.memory as any).jsHeapSizeLimit - (window.performance.memory as any).totalJSHeapSize},
                                         ],
                                         outerRadius: '75%',
