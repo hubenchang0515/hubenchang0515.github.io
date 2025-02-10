@@ -67,13 +67,9 @@ export default defineConfig({
         maximumFileSizeToCacheInBytes: 32 * 1024 ** 2, // 32 MB or set to something else
         globPatterns: ['**/*.{js,wasm,css,html,data}'],
 
-        // 过滤路径
-        navigateFallbackDenylist: [
-          /^\/QtTheme*/,
-          /^\/shift*/,
-          /^\/Phosphophyllite*/,
-          /^\/moe-tools*/,
-          /^\/friends*/,
+        // 仅允许根路径，即所有路径均不被导航
+        navigateFallbackAllowlist: [
+          /^\/$/,
         ]
       }
     }),
