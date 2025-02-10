@@ -66,6 +66,15 @@ export default defineConfig({
       workbox: {
         maximumFileSizeToCacheInBytes: 32 * 1024 ** 2, // 32 MB or set to something else
         globPatterns: ['**/*.{js,wasm,css,html,data}'],
+
+        // 过滤路径
+        navigateFallbackDenylist: [
+          /^\/QtTheme*/,
+          /^\/shift*/,
+          /^\/Phosphophyllite*/,
+          /^\/moe-tools*/,
+          /^\/friends*/,
+        ]
       }
     }),
   ],
