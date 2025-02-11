@@ -27,18 +27,6 @@ export default defineConfig({
             type: 'image/svg+xml',
             purpose: 'any',
           },
-          {
-            src: 'PWA/icon-192-maskable.svg',
-            sizes: '192x192',
-            type: 'image/svg+xml',
-            purpose: "maskable",
-          },
-          {
-            src: 'PWA/icon-512-maskable.svg',
-            sizes: '512x512',
-            type: 'image/svg+xml',
-            purpose: 'maskable',
-          },
         ],
         screenshots: [
           {
@@ -49,14 +37,37 @@ export default defineConfig({
           {
             src: 'PWA/preview-python.png',
             sizes: '3840x2160',
+            form_factor: 'wide',
           },
           {
             src: 'PWA/preview-qttheme.png',
             sizes: '3840x2160',
+            form_factor: 'wide',
           },
           {
             src: 'PWA/preview-monitor.png',
             sizes: '3840x2160',
+            form_factor: 'wide',
+          },
+          {
+            src: 'PWA/preview-main-narrow.png',
+            sizes: '1290x2796',
+            form_factor: 'narrow',
+          },
+          {
+            src: 'PWA/preview-launcher-narrow.png',
+            sizes: '1290x2796',
+            form_factor: 'narrow',
+          },
+          {
+            src: 'PWA/preview-python-narrow.png',
+            sizes: '1290x2796',
+            form_factor: 'narrow',
+          },
+          {
+            src: 'PWA/preview-monitor-narrow.png',
+            sizes: '1290x2796',
+            form_factor: 'narrow',
           },
         ]
       },
