@@ -76,7 +76,7 @@ export default defineConfig({
       },
       workbox: {
         maximumFileSizeToCacheInBytes: 32 * 1024 ** 2, // 32 MB or set to something else
-        globPatterns: ['**/*.{js,wasm,css,html,data}'],
+        globPatterns: ['**/*.{js,wasm,css,html,data,svg}'],
 
         // 仅允许根路径，即所有路径均不被导航
         navigateFallbackAllowlist: [
