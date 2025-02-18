@@ -4,7 +4,7 @@ import DockButton from "./DockButton";
 import  TimeView  from "./TimeView";
 import { TransitionGroup } from "react-transition-group";
 import { WindowState } from "./Window";
-import DockTrayItem, { DockTrayItemProps } from "./DockTrayItem";
+import DockTrayItem from "./DockTrayItem";
 
 export interface DockItem {
     id:number;
@@ -17,7 +17,6 @@ export interface DockProps {
     items?: WindowState[];
     onLaunchClicked?: ()=>void;
     onItemClick?: (id:number)=>void;
-    onTrayClick?: (id:number)=>void;
 }
 
 export default function Dock(props:DockProps) {
@@ -67,7 +66,7 @@ export default function Dock(props:DockProps) {
             >
                 {
                     props.items?.map((item, _) => {
-                        return item.tray && <Zoom key={item.id}><Box><DockTrayItem title={item.title} icon={item.icon} onClick={()=>props.onTrayClick?.(item.id)}/></Box></Zoom>
+                        return item.tray && <Zoom key={item.id}><Box><DockTrayItem title={item.title} icon={item.icon} onClick={()=>props.onItemClick?.(item.id)}/></Box></Zoom>
                     })
                 }
             </Box>

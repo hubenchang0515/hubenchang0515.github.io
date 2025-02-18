@@ -1,10 +1,8 @@
 import { IconButton, Tooltip } from "@mui/material";
-import { ApplicationProps } from "../features/Application";
 
 export interface DockTrayItemProps {
     icon:string;
     title?:string;
-    app?:ApplicationProps;
     onClick?:()=>void;
 }
 

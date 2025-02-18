@@ -1,11 +1,10 @@
-import React, { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { Box, Fade } from "@mui/material";
 import Dock from "./Dock";
 import { Window, WindowState } from "./Window";
 import { Launcher } from "./Launcher";
 import { ApplicationProps } from "../features/Application";
 import { TransitionGroup } from "react-transition-group";
-import { DockTrayItemProps } from "./DockTrayItem";
 import DesktopManager from "../features/DesktopManager";
 
 export interface DesktopProps {
@@ -145,7 +144,6 @@ export default function Desktop(props:DesktopProps) {
                 items={windows}
                 onLaunchClicked={()=>setLauncherOpen(!launcherOpen)} 
                 onItemClick={focusWindow}
-                onTrayClick={focusWindow}
             />
         </Box>
     )

@@ -1,6 +1,5 @@
 import React from "react";
 import { ApplicationProps } from "./features/Application";
-import { DockTrayItemProps } from "./components/DockTrayItem";
 
 const Discuss = React.lazy(() => import("./components/Discuss"))
 const Browser = React.lazy(() => import("./components/Browser"))
