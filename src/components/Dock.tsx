@@ -58,6 +58,7 @@ export default function Dock(props:DockProps) {
                 component={TransitionGroup}
                 sx={{
                     display:'flex',
+                    flexDirection: 'row-reverse',
                     alignItems: 'center',
                     height: '100%',
                     overflow: 'auto',

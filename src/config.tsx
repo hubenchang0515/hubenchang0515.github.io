@@ -57,6 +57,7 @@ export const APPS:ApplicationProps[] = [
         subtitle: 'Friendship links',
         icon: 'https://hubenchang0515.github.io/friends/favicon.svg',
         url: 'https://hubenchang0515.github.io/friends/',
+        poor: true,
     },
 
     {
@@ -70,6 +71,14 @@ export const APPS:ApplicationProps[] = [
 
 // 预启动的应用列表
 export const STARTS:ApplicationProps[] = [
+    {
+        title: '萌ICP备20250515号',
+        icon: 'https://travel.moe/images/ico64.png',
+        url: 'https://icp.gov.moe/?keyword=20250515',
+        tray: true,
+        minimum: true,
+        closeIsMinimum: true,
+    },
 
     {
         title: "Friends",
@@ -78,15 +87,6 @@ export const STARTS:ApplicationProps[] = [
         tray: true,
         minimum: true,
         poor: true,
-        closeIsMinimum: true,
-    },
-
-    {
-        title: '萌ICP备20250515号',
-        icon: 'https://travel.moe/images/ico64.png',
-        url: 'https://icp.gov.moe/?keyword=20250515',
-        tray: true,
-        minimum: true,
         closeIsMinimum: true,
     },
 ];
