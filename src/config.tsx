@@ -78,6 +78,7 @@ export const STARTS:ApplicationProps[] = [
         tray: true,
         minimum: true,
         poor: true,
+        closeIsMinimum: true,
     },
 
     {
@@ -86,6 +87,7 @@ export const STARTS:ApplicationProps[] = [
         url: 'https://icp.gov.moe/?keyword=20250515',
         tray: true,
         minimum: true,
+        closeIsMinimum: true,
     },
 ];
 

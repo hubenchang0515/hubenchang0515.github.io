@@ -171,7 +171,7 @@ export function Window(props:WindowProps) {
                     </IconButton>
                 }
                 
-                <IconButton onClick={()=>props.onClose?.()}>
+                <IconButton onClick={()=>{props.state.closeIsMinimum ? props.onMimimum?.(true) : props.onClose?.()}}>
                     <CloseIcon color="error"/>
                 </IconButton>
             </Box>

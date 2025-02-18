@@ -54,6 +54,7 @@ export default class DesktopManager {
             tray: app.tray ?? false,
             focus: !app.minimum,
             poor: app.poor,
+            closeIsMinimum: app.closeIsMinimum,
         }
         this.m_processes.push(process);
     }
