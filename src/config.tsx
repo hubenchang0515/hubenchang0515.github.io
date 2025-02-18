@@ -86,7 +86,6 @@ export const STARTS:ApplicationProps[] = [
         url: 'https://hubenchang0515.github.io/friends/',
         tray: true,
         minimum: true,
-        poor: true,
         closeIsMinimum: true,
     },
 ];
