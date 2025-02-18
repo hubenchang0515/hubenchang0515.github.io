@@ -6,7 +6,7 @@ const Discuss = React.lazy(() => import("./components/Discuss"))
 const Browser = React.lazy(() => import("./components/Browser"))
 const Monitor = React.lazy(() => import("./components/Monitor"))
 
-// 应用列表
+// 启动器上显示的应用列表
 export const APPS:ApplicationProps[] = [
     {
         title: 'Qt Theme',
@@ -69,26 +69,24 @@ export const APPS:ApplicationProps[] = [
     },
 ];
 
-// 托盘列表
-export const TRAYS:DockTrayItemProps[] = [
+// 预启动的应用列表
+export const STARTS:ApplicationProps[] = [
+
     {
-        icon:'https://hubenchang0515.github.io/friends/favicon.svg',
-        title:'友情链接',
-        app: {
-            title: "Friends",
-            icon: 'https://hubenchang0515.github.io/friends/favicon.svg',
-            url: 'https://hubenchang0515.github.io/friends/',
-        },
+        title: "Friends",
+        icon: 'https://hubenchang0515.github.io/friends/favicon.svg',
+        url: 'https://hubenchang0515.github.io/friends/',
+        tray: true,
+        minimum: true,
+        poor: true,
     },
 
     {
-        icon:'https://travel.moe/images/ico64.png',
-        title:'萌ICP备20250515号',
-        app: {
-            title: '萌ICP备20250515号',
-            icon: 'https://travel.moe/images/ico64.png',
-            url: 'https://icp.gov.moe/?keyword=20250515',
-        },
+        title: '萌ICP备20250515号',
+        icon: 'https://travel.moe/images/ico64.png',
+        url: 'https://icp.gov.moe/?keyword=20250515',
+        tray: true,
+        minimum: true,
     },
 ];
 

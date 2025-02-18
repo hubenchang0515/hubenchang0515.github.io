@@ -1,30 +1,15 @@
 import { IconButton, Paper, Typography } from "@mui/material";
 import { Box } from "@mui/system";
-import React, { Suspense, useCallback, useEffect, useRef, useState } from "react";
+import { Suspense, useCallback, useEffect, useRef, useState } from "react";
 
 import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import UnfoldLessIcon from '@mui/icons-material/UnfoldLess';
 import UnfoldMoreIcon from '@mui/icons-material/UnfoldMore';
 import CloseIcon from '@mui/icons-material/Close';
+import Process from "../features/Process";
 
-export interface WindowState {
-    id: number;
-    icon: string;
-    title: string;
-    x: number;
-    y: number;
-    z: number;
-    width: number;
-    height: number;
-    minimum?: boolean;
-    maximum?: boolean;
-    focus?: boolean;
-    poor?:boolean; // 性能较差，缩放时需要隐藏内容
-
-    url?: string;
-    children?: React.ReactNode;
-}
+export type WindowState = Process;
 
 export interface WindowProps {
     state: WindowState;

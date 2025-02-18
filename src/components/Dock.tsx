@@ -15,10 +15,9 @@ export interface DockItem {
 
 export interface DockProps {
     items?: WindowState[];
-    trays?: DockTrayItemProps[];
     onLaunchClicked?: ()=>void;
-    onItemClick?: (index:number)=>void;
-    onTrayClick?: (index:number)=>void;
+    onItemClick?: (id:number)=>void;
+    onTrayClick?: (id:number)=>void;
 }
 
 export default function Dock(props:DockProps) {
@@ -50,8 +49,8 @@ export default function Dock(props:DockProps) {
                 }}    
             >
                 {
-                    props.items?.map((item, index) => {
-                        return <Zoom key={item.id}><Box><DockItem title={item.title} icon={item.icon} focus={item.focus} onClick={()=>props.onItemClick?.(index)}/></Box></Zoom>
+                    props.items?.map((item, _) => {
+                        return !item.tray && <Zoom key={item.id}><Box><DockItem title={item.title} icon={item.icon} focus={item.focus} onClick={()=>props.onItemClick?.(item.id)}/></Box></Zoom>
                     })
                 }
             </Box>
@@ -67,8 +66,8 @@ export default function Dock(props:DockProps) {
                 }}    
             >
                 {
-                    props.trays?.map((item, index) => {
-                        return <Zoom key={index}><Box><DockTrayItem title={item.title} icon={item.icon} app={item.app} onClick={()=>props.onTrayClick?.(index)}/></Box></Zoom>
+                    props.items?.map((item, _) => {
+                        return item.tray && <Zoom key={item.id}><Box><DockTrayItem title={item.title} icon={item.icon} onClick={()=>props.onTrayClick?.(item.id)}/></Box></Zoom>
                     })
                 }
             </Box>

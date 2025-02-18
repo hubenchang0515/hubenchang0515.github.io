@@ -7,9 +7,12 @@ export interface ApplicationProps {
     // 初始状态
     x?:number;
     y?:number;
+    z?:number;
     width?:number;
     height?:number;
+    minimum?:boolean;
     maximum?:boolean;
+    tray?: boolean;
 
     // 内容
     url?:string;
