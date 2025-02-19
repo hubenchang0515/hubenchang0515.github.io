@@ -92,7 +92,12 @@ export const STARTS:ApplicationProps[] = [
 
 
 // GitHub 登录公钥
-export const AUTH = {
+export const GITHUB_AUTH = {
     CLIENT_ID: "Iv23liNpcW8LG11yMI8M",
     CLIENT_SECRET: "635377fcadca3598890563274e7ee7b7a5aa019c",
+};
+
+// UptimeRobot 只读密钥
+export const UPTIME_ROBOT = {
+    KEY: "m798606311-a60159ad1c3368e6a56cfc72",
 };

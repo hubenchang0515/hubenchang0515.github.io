@@ -1,12 +1,67 @@
 import { Box } from "@mui/system"
 import { useEffect, useState } from "react"
 import { LineChart } from '@mui/x-charts/LineChart';
-import { PieChart } from "@mui/x-charts";
+import { BarChart, PieChart } from "@mui/x-charts";
 import { Typography } from "@mui/material";
+import { UPTIME_ROBOT } from "../config";
 
 export default function Monitor() {
     const [fps, setFps] = useState(NaN);
-    const [data, setData] = useState<number[]>(new Array(60).fill(0));
+    const [fpsQueue, setFpsQueue] = useState<number[]>(new Array(60).fill(0));
+    const [uptimeDate, setUptimeDate] = useState<string[]>([]);
+    const [uptimeRatio, setUptimeRatio] = useState<number[]>([]);
+    const [totalRatio, setTotalRatio] = useState(100);
+    const [uptimeUrl, setUptimeUrl] = useState(window.location.href);
+
+    useEffect(() => {
+        const url = 'https://api.uptimerobot.com/v2/getMonitors';
+        const options = { 
+            method: 'POST',
+            headers: { 
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `api_key=${UPTIME_ROBOT.KEY}&custom_uptime_ratios=30&logs=1`
+        };
+
+        fetch(url, options).then((response) => {
+            response.json().then((data) => {
+                const today = new Date();
+                today.setHours(0, 0, 0, 0);
+
+                const date = Array.from(Array(30), (_, i) => {
+                    const day = new Date(); 
+                    day.setDate(today.getDate() - 29 + i);
+                    day.setHours(0, 0, 0, 0);
+                    return day.toLocaleDateString()
+                });
+                
+                const downtime = Array(30).fill(0);
+                for (const log of data.monitors[0].logs) {
+                    const day = new Date(log.datetime * 1000);
+                    day.setHours(0, 0, 0, 0);
+
+                    const diff = today.getTime() - day.getTime();
+                    const index = 29 - diff / (1000 * 60 * 60 * 24);
+                    if (log.type !== 2 && log.type !== 98) {
+                        downtime[index] += log.duration;
+                    }
+                }
+                
+                const ratio = Array.from(Array(30), (_, i) => {
+                    return Number((100 - 100 * downtime[i] / (60 * 60 * 24)).toFixed(2));
+                });
+                
+                setUptimeDate(date);
+                setUptimeRatio(ratio);
+                setTotalRatio(Number(data.monitors[0].custom_uptime_ratio));
+                setUptimeUrl(data.monitors[0].url);
+            }).catch((reason) => {
+                console.error(reason);
+            })
+        }).catch((reason) => {
+            console.error(reason);
+        })
+    }, []);
 
     useEffect(() => {
         let prevTime:DOMHighResTimeStamp = 0;
@@ -21,8 +76,8 @@ export default function Monitor() {
 
             if (t - prevTime >= 1000) {
                 
-                data.shift()
-                setData([...data, frames*1000/(t - prevTime)]);
+                fpsQueue.shift()
+                setFpsQueue([...fpsQueue, frames*1000/(t - prevTime)]);
                 setFps(frames*1000/(t - prevTime));
                 prevTime = t;
                 frames = 0;
@@ -38,7 +93,7 @@ export default function Monitor() {
         return () => {
             loop = false;
         }
-    }, [data]);
+    }, [fpsQueue]);
 
     return (
         <Box className='monitor' sx={{width:'100%', height:'100%', display:'flex', flexDirection:{xs:'column', md:'row'}}}>
@@ -46,7 +101,7 @@ export default function Monitor() {
                 <LineChart
                     xAxis={[
                         {
-                            data:Array.from(data.keys()),
+                            data: Array.from(fpsQueue.keys()),
                         }
                     ]}
                     yAxis={[
@@ -63,7 +118,7 @@ export default function Monitor() {
                     series={[
                         {
                             label: `FPS:${fps.toFixed(2)}`,
-                            data:data,
+                            data:fpsQueue,
                             showMark:false,
                             color:'#2196f3'
                         },
@@ -95,17 +150,19 @@ export default function Monitor() {
                         </Box>
                     </Box>
                     <Box sx={{width:'100%', height:'48%', display:'flex', flexDirection:'column'}}>
-                        <Typography variant="h6" textAlign='center'>JS Heap</Typography>
+                        <Typography variant="h6" textAlign='center'>Uptime ({totalRatio.toFixed(2)}%)</Typography>
                         <Box sx={{width:'100%', height:'100%'}}>
-                            <PieChart
+                            <BarChart
                                 series={[
                                     {
-                                        data: [
-                                            {id: 0, label: 'Used', color:'#f44336', value: (window.performance.memory as any).usedJSHeapSize},
-                                            {id: 1, label: 'Free', color:'#2196f3', value: (window.performance.memory as any).totalJSHeapSize - (window.performance.memory as any).usedJSHeapSize},
-                                        ],
-                                        outerRadius: '75%',
-                                        innerRadius: '50%',
+                                        data: uptimeRatio,
+                                        label: uptimeUrl,
+                                    }
+                                ]}
+                                xAxis={[
+                                    {
+                                        data: uptimeDate,
+                                        scaleType:'band',
                                     }
                                 ]}
                             />
