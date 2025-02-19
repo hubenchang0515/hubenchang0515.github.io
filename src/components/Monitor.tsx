@@ -32,7 +32,7 @@ export default function Monitor() {
                     const day = new Date(); 
                     day.setDate(today.getDate() - 29 + i);
                     day.setHours(0, 0, 0, 0);
-                    return day.toLocaleDateString()
+                    return `${day.getMonth()+1}/${day.getDate()}`
                 });
                 
                 const downtime = Array(30).fill(0);
