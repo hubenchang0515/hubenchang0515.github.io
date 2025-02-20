@@ -81,8 +81,8 @@ export function Window(props:WindowProps) {
             square={forceMaximum || props.state.maximum}
             sx={{
                 position: 'absolute',
-                top: props.state.minimum ? props.state.y + props.state.height/2 : forceMaximum || props.state.maximum ? 0 : props.state.y,
-                left: props.state.minimum ? props.state.x + props.state.width/2 : forceMaximum || props.state.maximum ? 0 : props.state.x,
+                top: props.state.minimum ? '100%' : forceMaximum || props.state.maximum ? 0 : props.state.y,
+                left: props.state.minimum ? '50%' : forceMaximum || props.state.maximum ? 0 : props.state.x,
                 zIndex: props.state.z,
                 width: props.state.minimum ? 0 : forceMaximum || props.state.maximum ? '100%' : props.state.width,
                 height: props.state.minimum ? 0 : forceMaximum || props.state.maximum ? '100%' : props.state.height,
