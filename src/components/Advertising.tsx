@@ -13,7 +13,7 @@ export default function Advertising(props:AdvertisingProps) {
                 props.children ? props.children :
                 <Box sx={{width:'100%', height:'100%', display:'flex'}}>
                     <a href={props.url} style={{width:'100%', height:'100%', display:'flex'}}>
-                        <img style={{flex:1, objectFit:'contain'}} src={props.image} draggable="false"></img>
+                        <img style={{width:'100%', height:'100%', objectFit:'contain'}} src={props.image} draggable="false"></img>
                     </a>
                 </Box>
             }
