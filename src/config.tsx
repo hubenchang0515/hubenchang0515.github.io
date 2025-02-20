@@ -4,6 +4,7 @@ import { ApplicationProps } from "./features/Application";
 const Discuss = React.lazy(() => import("./components/Discuss"))
 const Browser = React.lazy(() => import("./components/Browser"))
 const Monitor = React.lazy(() => import("./components/Monitor"))
+const Advertising = React.lazy(() => import("./components/Advertising"))
 
 // 启动器上显示的应用列表
 export const APPS:ApplicationProps[] = [
@@ -86,6 +87,19 @@ export const STARTS:ApplicationProps[] = [
         url: 'https://hubenchang0515.github.io/friends/',
         tray: true,
         minimum: true,
+        closeIsMinimum: true,
+    },
+
+    {
+        title: 'AD',
+        icon: 'icons/ad.svg',
+        component: Advertising,
+        componentProps: {image:"images/AD.png"},
+        x: document.body.clientWidth - 320,
+        y: document.body.clientHeight - 360 - 64,
+        width: 320,
+        height: 360,
+        tray: true,
         closeIsMinimum: true,
     },
 ];
