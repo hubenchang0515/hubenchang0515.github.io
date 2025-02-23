@@ -38,6 +38,14 @@ export const APPS:ApplicationProps[] = [
     },
 
     {
+        title: 'Lolipop',
+        icon: 'icons/video.svg',
+        subtitle: 'Video Player',
+        url: 'https://hubenchang0515.github.io/Lolipop/Lolipop.html',
+
+    },
+
+    {
         title: 'Browser',
         icon: 'icons/browser.svg',
         subtitle: 'Simple Browser in iframe',
