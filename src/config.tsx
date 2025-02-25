@@ -39,7 +39,7 @@ export const APPS:ApplicationProps[] = [
 
     {
         title: 'Lolipop',
-        icon: 'icons/video.svg',
+        icon: 'https://raw.githubusercontent.com/hubenchang0515/Lolipop/refs/heads/master/src/resource/icon.svg',
         subtitle: 'Video Player',
         url: 'https://hubenchang0515.github.io/Lolipop/Lolipop.html',
 
