@@ -3,3 +3,4 @@ Allow: /
 
 Sitemap: https://hubenchang0515.github.io/sitemap.txt
 Sitemap: https://hubenchang0515.github.io/Phosphophyllite/sitemap.txt
+Sitemap: https://hubenchang0515.github.io/Primers/sitemap.txt
