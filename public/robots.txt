@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://hubenchang0515.github.io/sitemap.txt
-Sitemap: https://hubenchang0515.github.io/Phosphophyllite/sitemap.txt
-Sitemap: https://hubenchang0515.github.io/Primers/sitemap.txt
+Sitemap: https://planc.moe/sitemap.txt
+Sitemap: https://primers.planc.moe/sitemap.txt
+Sitemap: https://blog.planc.moe/sitemap.txt
