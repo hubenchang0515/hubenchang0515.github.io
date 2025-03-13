@@ -17,6 +17,13 @@ export const APPS:ApplicationProps[] = [
     },
 
     {
+        title: 'Primers',
+        icon: 'https://hubenchang0515.github.io/Primers/icon.svg',
+        url: 'https://hubenchang0515.github.io/Primers/',
+        subtitle: 'Learn to Program From Scratch',
+    },
+
+    {
         title: 'Shift',
         icon: 'https://hubenchang0515.github.io/shift/favicon.svg',
         url: 'https://hubenchang0515.github.io/shift/',
@@ -25,7 +32,7 @@ export const APPS:ApplicationProps[] = [
 
     {
         title: 'Phosphophyllite',
-        icon: 'https://hubenchang0515.github.io/Phosphophyllite/static/favicon.svg',
+        icon: 'https://hubenchang0515.github.io/Phosphophyllite/favicon.svg',
         url: 'https://hubenchang0515.github.io/Phosphophyllite/',
         subtitle: 'Plan C\'s Blog',
     },
