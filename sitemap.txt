@@ -1,6 +1,6 @@
-https://hubenchang0515.github.io/
-https://hubenchang0515.github.io/moe-tools/
-https://hubenchang0515.github.io/todo/
-https://hubenchang0515.github.io/Phosphophyllite/
-https://hubenchang0515.github.io/QtTheme/
-https://hubenchang0515.github.io/Primers/
+https://planc.moe/
+https://primers.planc.moe/
+https://shift.planc.moe/
+https://qttheme.planc.moe/
+https://blog.planc.moe/
+https://tools.planc.moe/
