@@ -1,6 +1,6 @@
-https://planc.moe/
-https://primers.planc.moe/
-https://shift.planc.moe/
-https://qttheme.planc.moe/
-https://blog.planc.moe/
-https://tools.planc.moe/
+https://xplanc.org/
+https://xplanc.org/shift/
+https://xplanc.org/QtTheme/
+https://xplanc.org/Primers/
+https://xplanc.org/Phosphophyllite/
+https://xplanc.org/moe-tools/
