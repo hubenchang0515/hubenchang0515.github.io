@@ -10,37 +10,37 @@ const Advertising = React.lazy(() => import("./components/Advertising"))
 export const APPS:ApplicationProps[] = [
     {
         title: 'Qt Theme',
-        icon: 'https://hubenchang0515.github.io/QtTheme/icon.svg',
-        url: 'https://hubenchang0515.github.io/QtTheme/',
+        icon: 'https://xplanc.org/QtTheme/icon.svg',
+        url: 'https://xplanc.org/QtTheme/',
         subtitle: 'Qt theme in pure qss',
         poor: true,
     },
 
     {
         title: 'Primers',
-        icon: 'https://hubenchang0515.github.io/Primers/icon.svg',
-        url: 'https://hubenchang0515.github.io/Primers/',
+        icon: 'https://xplanc.org/Primers/icon.svg',
+        url: 'https://xplanc.org/Primers/',
         subtitle: 'Learn to Program From Scratch',
     },
 
     {
         title: 'Shift',
-        icon: 'https://hubenchang0515.github.io/shift/favicon.svg',
-        url: 'https://hubenchang0515.github.io/shift/',
+        icon: 'https://xplanc.org/shift/favicon.svg',
+        url: 'https://xplanc.org/shift/',
         subtitle: 'WebAssembly runtime for Python, Lua, Ruby and etc',
     },
 
     {
         title: 'Phosphophyllite',
-        icon: 'https://hubenchang0515.github.io/Phosphophyllite/favicon.svg',
-        url: 'https://hubenchang0515.github.io/Phosphophyllite/',
+        icon: 'https://xplanc.org/Phosphophyllite/favicon.svg',
+        url: 'https://xplanc.org/Phosphophyllite/',
         subtitle: 'Plan C\'s Blog',
     },
 
     {
         title: 'Moe Tools',
-        icon: 'https://hubenchang0515.github.io/moe-tools/favicon.svg',
-        url: 'https://hubenchang0515.github.io/moe-tools/',
+        icon: 'https://xplanc.org/moe-tools/favicon.svg',
+        url: 'https://xplanc.org/moe-tools/',
         subtitle: 'Versatile online toolset',
     },
 
@@ -48,7 +48,7 @@ export const APPS:ApplicationProps[] = [
         title: 'Lolipop',
         icon: 'https://raw.githubusercontent.com/hubenchang0515/Lolipop/refs/heads/master/src/resource/icon.svg',
         subtitle: 'Video Player',
-        url: 'https://hubenchang0515.github.io/Lolipop/Lolipop.html',
+        url: 'https://xplanc.org/Lolipop/Lolipop.html',
 
     },
 
@@ -71,8 +71,8 @@ export const APPS:ApplicationProps[] = [
     {
         title: "Friends",
         subtitle: 'Friendship links',
-        icon: 'https://hubenchang0515.github.io/friends/favicon.svg',
-        url: 'https://hubenchang0515.github.io/friends/',
+        icon: 'https://xplanc.org/friends/favicon.svg',
+        url: 'https://xplanc.org/friends/',
         poor: true,
     },
 
@@ -98,8 +98,8 @@ export const STARTS:ApplicationProps[] = [
 
     {
         title: "Friends",
-        icon: 'https://hubenchang0515.github.io/friends/favicon.svg',
-        url: 'https://hubenchang0515.github.io/friends/',
+        icon: 'https://xplanc.org/friends/favicon.svg',
+        url: 'https://xplanc.org/friends/',
         tray: true,
         minimum: true,
         closeIsMinimum: true,

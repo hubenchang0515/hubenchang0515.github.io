@@ -1,6 +1,6 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://planc.moe/sitemap.txt
-Sitemap: https://primers.planc.moe/sitemap.txt
-Sitemap: https://blog.planc.moe/sitemap.txt
+Sitemap: https://xplanc.org/sitemap.txt
+Sitemap: https://xplanc.org/Primers/sitemap.txt
+Sitemap: https://xplanc.org/Phosphophyllite/sitemap.txt
