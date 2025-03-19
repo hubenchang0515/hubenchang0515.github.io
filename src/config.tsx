@@ -45,6 +45,13 @@ export const APPS:ApplicationProps[] = [
     },
 
     {
+        title: 'Nuclear & Peace',
+        icon: 'https://xplanc.org/nuclear-peace/icon.svg',
+        url: 'https://xplanc.org/nuclear-peace/',
+        subtitle: 'Nuclear weapon demonstration',
+    },
+
+    {
         title: 'Lolipop',
         icon: 'https://raw.githubusercontent.com/hubenchang0515/Lolipop/refs/heads/master/src/resource/icon.svg',
         subtitle: 'Video Player',
