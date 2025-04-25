@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from "react"
 import Desktop from "./components/Desktop"
 import StartUp, { StartUpState } from "./components/StartUp"
-import { APPS, STARTS } from "./config"
+import { APPS, SHORTCUTS, STARTS } from "./config"
 
 function App() {
     const [start, setStart] = useState(true);
@@ -40,7 +40,7 @@ function App() {
     }, [])
 
     return (
-        start ? <Desktop background="https://www.dmoe.cc/random.php" apps={APPS} starts={STARTS} installPrompt={installPrompt} onExit={onExit}></Desktop> : <StartUp state={state} onClick={onStart}></StartUp>    
+        start ? <Desktop background="https://www.dmoe.cc/random.php" shortcuts={SHORTCUTS} apps={APPS} starts={STARTS} installPrompt={installPrompt} onExit={onExit}></Desktop> : <StartUp state={state} onClick={onStart}></StartUp>    
     )
 }
 

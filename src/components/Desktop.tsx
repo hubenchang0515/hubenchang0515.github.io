@@ -8,9 +8,11 @@ import { TransitionGroup } from "react-transition-group";
 import DesktopManager from "../features/DesktopManager";
 import SearchBox from "./SearchBox";
 import { SEARCH_ENGINES } from "../config";
+import ShortcutBox from "./ShortcutBox";
 
 export interface DesktopProps {
     background: string;
+    shortcuts?: ApplicationProps[];
     apps?: ApplicationProps[];
     starts?: ApplicationProps[];
     installPrompt?: Event;
@@ -108,8 +110,20 @@ export default function Desktop(props:DesktopProps) {
                 position:'relative',
             }}
         >
-            <Container maxWidth='md' sx={{width:'100%', flex:1, display:'flex', alignItems:'center'}}>
+            <Container 
+                maxWidth='md' 
+                sx={{
+                    width:'100%', 
+                    flex:1, 
+                    display:'flex', 
+                    flexDirection:'column', 
+                    justifyContent:'center', 
+                    alignItems:'stretch',
+                    gap:1,
+                }}
+            >
                 <SearchBox engines={SEARCH_ENGINES}/>
+                <ShortcutBox items={props.shortcuts} onAppClick={launch} />
             </Container>
             <Box
                 component={TransitionGroup}

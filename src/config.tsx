@@ -7,7 +7,32 @@ const Browser = React.lazy(() => import("./components/Browser"))
 const Monitor = React.lazy(() => import("./components/Monitor"))
 const Advertising = React.lazy(() => import("./components/Advertising"))
 
-// 启动器上显示的应用列表
+// 快捷方式列表，显示在桌面上
+export const SHORTCUTS:ApplicationProps[] = [
+    {
+        title: 'Qt Theme',
+        icon: 'https://xplanc.org/QtTheme/icon.svg',
+        url: 'https://xplanc.org/QtTheme/',
+        subtitle: 'Qt theme in pure qss',
+        poor: true,
+    },
+
+    {
+        title: 'Primers',
+        icon: 'https://xplanc.org/primers/icon.svg',
+        url: 'https://xplanc.org/primers/',
+        subtitle: 'Learn to Program From Scratch',
+    },
+
+    {
+        title: 'Shift',
+        icon: 'https://xplanc.org/shift/favicon.svg',
+        url: 'https://xplanc.org/shift/',
+        subtitle: 'WebAssembly runtime for Python, Lua, Ruby and etc',
+    },
+]
+
+// 全部应用列表，显示在启动器上
 export const APPS:ApplicationProps[] = [
     {
         title: 'Qt Theme',
