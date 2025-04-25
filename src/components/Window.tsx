@@ -82,7 +82,7 @@ export function Window(props:WindowProps) {
             sx={{
                 position: 'absolute',
                 top: props.state.minimum ? '100%' : forceMaximum || props.state.maximum ? 0 : props.state.y,
-                left: props.state.minimum ? '50%' : forceMaximum || props.state.maximum ? 0 : props.state.x,
+                left: props.state.minimum ? props.state.tray ? '100%' : '50%' : forceMaximum || props.state.maximum ? 0 : props.state.x,
                 zIndex: props.state.z,
                 width: props.state.minimum ? 0 : forceMaximum || props.state.maximum ? '100%' : props.state.width,
                 height: props.state.minimum ? 0 : forceMaximum || props.state.maximum ? '100%' : props.state.height,
