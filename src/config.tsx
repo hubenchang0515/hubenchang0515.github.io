@@ -19,8 +19,8 @@ export const APPS:ApplicationProps[] = [
 
     {
         title: 'Primers',
-        icon: 'https://xplanc.org/Primers/icon.svg',
-        url: 'https://xplanc.org/Primers/',
+        icon: 'https://xplanc.org/primers/icon.svg',
+        url: 'https://xplanc.org/primers/',
         subtitle: 'Learn to Program From Scratch',
     },
 
