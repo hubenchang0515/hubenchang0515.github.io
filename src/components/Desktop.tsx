@@ -71,6 +71,10 @@ export default function Desktop(props:DesktopProps) {
     }, [manager.current]);
 
     const launch = useCallback((app:ApplicationProps, componentProps?:any) => {
+        if (app.outside) {
+            window.open(app.url);
+            return;
+        }
         manager.current.startProcess(app, componentProps);
         setWindows([...manager.current.processes()]);
         setLauncherOpen(false);

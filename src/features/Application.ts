@@ -22,4 +22,5 @@ export interface ApplicationProps {
     // 特殊属性
     poor?:boolean;              // 性能较差，缩放时需要隐藏内容
     closeIsMinimum?: boolean;   // 点击 close 时最小化而不是退出
+    outside?:boolean;           // 外部启动，通过浏览器打开而非内部虚拟窗口打开
 }

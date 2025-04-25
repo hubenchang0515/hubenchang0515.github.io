@@ -10,6 +10,13 @@ const Advertising = React.lazy(() => import("./components/Advertising"))
 // 快捷方式列表，显示在桌面上
 export const SHORTCUTS:ApplicationProps[] = [
     {
+        title: 'GitHub',
+        icon: '/icons/github.svg',
+        url: 'https://github.com',
+        outside: true,
+    },
+    
+    {
         title: 'Qt Theme',
         icon: 'https://xplanc.org/QtTheme/icon.svg',
         url: 'https://xplanc.org/QtTheme/',
@@ -29,6 +36,20 @@ export const SHORTCUTS:ApplicationProps[] = [
         icon: 'https://xplanc.org/shift/favicon.svg',
         url: 'https://xplanc.org/shift/',
         subtitle: 'WebAssembly runtime for Python, Lua, Ruby and etc',
+    },
+
+    {
+        title: 'Phosphophyllite',
+        icon: 'https://xplanc.org/Phosphophyllite/favicon.svg',
+        url: 'https://xplanc.org/Phosphophyllite/',
+        subtitle: 'Plan C\'s Blog',
+    },
+
+    {
+        title: 'Moe Tools',
+        icon: 'https://xplanc.org/moe-tools/favicon.svg',
+        url: 'https://xplanc.org/moe-tools/',
+        subtitle: 'Versatile online toolset',
     },
 ]
 
@@ -87,7 +108,7 @@ export const APPS:ApplicationProps[] = [
 
     {
         title: 'Browser',
-        icon: 'icons/browser.svg',
+        icon: '/icons/browser.svg',
         subtitle: 'Simple Browser in iframe',
         component: Browser,
         componentProps: {defaultUrl: "https://www.google.com/?igu=1"},
@@ -96,7 +117,7 @@ export const APPS:ApplicationProps[] = [
 
     {
         title: 'Monitor',
-        icon: 'icons/monitor.svg',
+        icon: '/icons/monitor.svg',
         subtitle: 'System Monitor',
         component: Monitor,
     },
@@ -140,7 +161,7 @@ export const STARTS:ApplicationProps[] = [
 
     {
         title: 'AD',
-        icon: 'icons/ad.svg',
+        icon: '/icons/ad.svg',
         component: Advertising,
         componentProps: {image:"images/AD.png"},
         x: document.body.clientWidth - 320,
