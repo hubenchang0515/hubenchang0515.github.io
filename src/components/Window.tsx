@@ -85,7 +85,7 @@ export function Window(props:WindowProps) {
                 left: props.state.minimum ? props.state.tray ? '100%' : '50%' : forceMaximum || props.state.maximum ? 0 : props.state.x,
                 zIndex: props.state.z,
                 width: props.state.minimum ? 0 : forceMaximum || props.state.maximum ? '100%' : props.state.width,
-                height: props.state.minimum ? 0 : forceMaximum || props.state.maximum ? '100%' : props.state.height,
+                height: props.state.minimum ? 0 : forceMaximum || props.state.maximum ? 'calc(100% - 64px)' : props.state.height, // 64 是 Dock 的高度
                 display: 'flex',
                 flexDirection: 'column',
                 background: forceMaximum || props.state.maximum ? 'rgb(221,227,233)' : 'rgba(255,255,255,0.7)',
