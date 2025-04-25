@@ -1,11 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from "react";
-import { Box, Fade } from "@mui/material";
+import { Box, Container, Fade } from "@mui/material";
 import Dock from "./Dock";
 import { Window, WindowState } from "./Window";
 import { Launcher } from "./Launcher";
 import { ApplicationProps } from "../features/Application";
 import { TransitionGroup } from "react-transition-group";
 import DesktopManager from "../features/DesktopManager";
+import SearchBox from "./SearchBox";
+import { SEARCH_ENGINES } from "../config";
 
 export interface DesktopProps {
     background: string;
@@ -103,14 +105,14 @@ export default function Desktop(props:DesktopProps) {
                 backgroundPosition: 'center',
                 display:'flex',
                 flexDirection:'column',
+                position:'relative',
             }}
         >
+            <Container maxWidth='md' sx={{width:'100%', flex:1, display:'flex', alignItems:'center'}}>
+                <SearchBox engines={SEARCH_ENGINES}/>
+            </Container>
             <Box
                 component={TransitionGroup}
-                sx={{
-                    position:'relative',
-                    flexGrow: 1
-                }}
                 onClick={()=>setLauncherOpen(false)}
             >
                 {

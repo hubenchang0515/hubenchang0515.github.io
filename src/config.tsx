@@ -1,5 +1,6 @@
 import React from "react";
 import { ApplicationProps } from "./features/Application";
+import { SearchEngine } from "./components/SearchBox";
 
 const Discuss = React.lazy(() => import("./components/Discuss"))
 const Browser = React.lazy(() => import("./components/Browser"))
@@ -122,6 +123,7 @@ export const STARTS:ApplicationProps[] = [
         width: 320,
         height: 360,
         tray: true,
+        minimum: true,
         closeIsMinimum: true,
     },
 ];
@@ -137,3 +139,20 @@ export const GITHUB_AUTH = {
 export const UPTIME_ROBOT = {
     KEY: "m798606311-a60159ad1c3368e6a56cfc72",
 };
+
+// 搜素引擎
+export const SEARCH_ENGINES:SearchEngine[] = [
+    {
+        label: 'Google',
+        action: (text:string) => {
+            window.open(`https://www.google.com/search?q=${encodeURIComponent(text)}`);
+        }
+    },
+
+    {
+        label: 'Bing',
+        action: (text:string) => {
+            window.open(`https://www.bing.com/search?q=${encodeURIComponent(text)}`)
+        }
+    },
+]

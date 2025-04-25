@@ -49,7 +49,7 @@ export function Launcher(props:LauncherProps) {
                 className="launcher"
                 sx={{
                     position:'absolute',
-                    bottom: 0,
+                    bottom: 64, // // 64 是 Dock 的高度
                     left: 0,
                     width: document.documentElement.clientWidth >= 960 ? 480 : '100%',
                     height: document.documentElement.clientWidth >= 960 && document.documentElement.clientHeight - 64 >= 720 ? 720 : '100%', // 64 是 Dock 的高度
