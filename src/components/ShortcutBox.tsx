@@ -14,12 +14,12 @@ export default function ShortcutBox(props:ShortcutBoxProps) {
                 background:'rgba(255,255,255,0.7)',
             }}
         >
-            <Grid container spacing={2}>
+            <Grid container spacing={1} columns={8}>
             {
                 props.items?.map((item, index) => {
                     return (
                         <Grid 
-                            size={2} 
+                            size={{xs:2, md:1}} 
                             sx={{
                                 display:'flex', 
                                 justifyContent:'center',
