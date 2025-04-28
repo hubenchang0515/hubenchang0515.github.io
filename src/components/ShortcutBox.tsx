@@ -19,6 +19,7 @@ export default function ShortcutBox(props:ShortcutBoxProps) {
                 props.items?.map((item, index) => {
                     return (
                         <Grid 
+                            key={index}
                             size={{xs:2, md:1}} 
                             sx={{
                                 display:'flex', 
@@ -26,7 +27,7 @@ export default function ShortcutBox(props:ShortcutBoxProps) {
                                 alignItems:'center',
                             }}
                         >
-                            <Shortcut key={index} app={item} onClick={()=>{props.onAppClick?.(item)}}/>
+                            <Shortcut app={item} onClick={()=>{props.onAppClick?.(item)}}/>
                         </Grid>
                     )
                 })

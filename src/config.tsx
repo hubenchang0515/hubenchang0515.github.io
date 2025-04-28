@@ -10,18 +10,10 @@ const Advertising = React.lazy(() => import("./components/Advertising"))
 // 快捷方式列表，显示在桌面上
 export const SHORTCUTS:ApplicationProps[] = [
     {
-        title: 'GitHub',
-        icon: '/icons/github.svg',
-        url: 'https://github.com',
-        outside: true,
-    },
-    
-    {
-        title: 'Qt Theme',
-        icon: 'https://xplanc.org/QtTheme/icon.svg',
-        url: 'https://xplanc.org/QtTheme/',
-        subtitle: 'Qt theme in pure qss',
-        poor: true,
+        title: 'Moe Nav',
+        icon: 'https://xplanc.org/moe-nav/favicon.svg',
+        url: 'https://xplanc.org/moe-nav/',
+        subtitle: 'Navigation page',
     },
 
     {
@@ -36,6 +28,14 @@ export const SHORTCUTS:ApplicationProps[] = [
         icon: 'https://xplanc.org/shift/favicon.svg',
         url: 'https://xplanc.org/shift/',
         subtitle: 'WebAssembly runtime for Python, Lua, Ruby and etc',
+    },
+    
+    {
+        title: 'Qt Theme',
+        icon: 'https://xplanc.org/QtTheme/icon.svg',
+        url: 'https://xplanc.org/QtTheme/',
+        subtitle: 'Qt theme in pure qss',
+        poor: true,
     },
 
     {
@@ -82,6 +82,13 @@ export const APPS:ApplicationProps[] = [
         icon: 'https://xplanc.org/Phosphophyllite/favicon.svg',
         url: 'https://xplanc.org/Phosphophyllite/',
         subtitle: 'Plan C\'s Blog',
+    },
+
+    {
+        title: 'Moe Nav',
+        icon: 'https://xplanc.org/moe-nav/favicon.svg',
+        url: 'https://xplanc.org/moe-nav/',
+        subtitle: 'Navigation page',
     },
 
     {

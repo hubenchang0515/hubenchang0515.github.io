@@ -7,6 +7,13 @@ export interface ShortcutProps {
 }
 
 export default function Shortcut(props:ShortcutProps) {
+    const onClick = (ev:React.MouseEvent<HTMLButtonElement, MouseEvent>) => {
+        if (props.onClick) {
+            props.onClick();
+            ev.preventDefault();
+        }
+    }
+
     return (
         <Button
             sx={{
@@ -19,9 +26,10 @@ export default function Shortcut(props:ShortcutProps) {
                 padding:1, overflow:'hidden',textOverflow:'ellipsis',
             }}
             title={props.app.title}
-            onClick={props.onClick}
+            onClick={onClick}
+            href={props.app.url}
         >
-            <img src={props.app.icon} style={{width:'80%', aspectRatio:1}} draggable='false'/>
+            <img src={props.app.icon} style={{width:'80%', aspectRatio:1}} draggable='false' alt={props.app.title}/>
         </Button>
     )
 }

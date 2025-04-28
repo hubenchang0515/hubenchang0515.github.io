@@ -12,9 +12,15 @@ export default function Advertising(props:AdvertisingProps) {
             {
                 props.children ? props.children :
                 <Box sx={{width:'100%', height:'100%', display:'flex'}}>
-                    <a href={props.url} style={{width:'100%', height:'100%', display:'flex'}}>
-                        <img style={{width:'100%', height:'100%', objectFit:'contain'}} src={props.image} draggable="false"></img>
-                    </a>
+                    {
+                        props.url ? 
+                        <a href={props.url} style={{width:'100%', height:'100%', display:'flex'}}>
+                            <img style={{width:'100%', height:'100%', objectFit:'contain'}} src={props.image} draggable="false" alt="AD"></img>
+                        </a>
+                        :
+                        <img style={{width:'100%', height:'100%', objectFit:'contain'}} src={props.image} draggable="false" alt="AD"></img>
+                    }
+                    
                 </Box>
             }
             

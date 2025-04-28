@@ -147,31 +147,31 @@ export function Window(props:WindowProps) {
                         document.addEventListener("touchcancel", touchUp);
                     }}
                 >
-                    <img style={{width:32, height:32, paddingLeft:8, paddingRight:8}} draggable='false' src={props.state.icon}></img>
+                    <img style={{width:32, height:32, paddingLeft:8, paddingRight:8}} draggable='false' src={props.state.icon} alt={props.state.title}></img>
                     <Typography>{props.state.title}</Typography>
                 </Box>
 
                 {
                     props.state.url ? 
-                    <IconButton href={props.state.url} target="_blank">
+                    <IconButton href={props.state.url} target="_blank" aria-label="open">
                         <OpenInNewIcon color="primary"/>
                     </IconButton>
                     :
                     <></>
                 }
 
-                <IconButton onClick={()=>props.onMimimum?.(true)}>
+                <IconButton onClick={()=>props.onMimimum?.(true)} aria-label="mimimum">
                     <ExpandMoreIcon color="primary"/>
                 </IconButton>
 
                 {
                     forceMaximum ? <></> :
-                    <IconButton onClick={()=>props.onMaximum?.(!props.state.maximum)}>
+                    <IconButton onClick={()=>props.onMaximum?.(!props.state.maximum)} aria-label="maximum">
                         {props.state.maximum ? <UnfoldLessIcon  color="primary"/> : <UnfoldMoreIcon  color="primary"/>}
                     </IconButton>
                 }
                 
-                <IconButton onClick={()=>{props.state.closeIsMinimum ? props.onMimimum?.(true) : props.onClose?.()}}>
+                <IconButton onClick={()=>{props.state.closeIsMinimum ? props.onMimimum?.(true) : props.onClose?.()}} aria-label="close">
                     <CloseIcon color="error"/>
                 </IconButton>
             </Box>
@@ -184,6 +184,7 @@ export function Window(props:WindowProps) {
                         <iframe
                             style={{width:'100%', height:'100%',verticalAlign:'bottom',margin:0, padding:0, border:0,userSelect:'none'}} 
                             src={props.state.url}
+                            title={props.state.title}
                         />
                     }
                     

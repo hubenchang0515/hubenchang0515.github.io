@@ -22,7 +22,7 @@ export default function DockButton(props:DockButtonProps) {
         >
             <Tooltip title={props.title}>
                 <IconButton onClick={props.onClick}>
-                    {props.icon ? <img width={32} height={32}  src={props.icon} draggable='false'/> : props.children}
+                    {props.icon ? <img width={32} height={32}  src={props.icon} draggable='false' alt={props.title}/> : props.children}
                 </IconButton>
             </Tooltip>
         </Box>
