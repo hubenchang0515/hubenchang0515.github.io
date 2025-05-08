@@ -2,5 +2,5 @@ User-agent: *
 Allow: /
 
 Sitemap: https://xplanc.org/sitemap.txt
-Sitemap: https://xplanc.org/Primers/sitemap.txt
+Sitemap: https://xplanc.org/primers/sitemap.xml
 Sitemap: https://xplanc.org/Phosphophyllite/sitemap.txt
