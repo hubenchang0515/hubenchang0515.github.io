@@ -11,7 +11,7 @@ import { SEARCH_ENGINES } from "../config";
 import ShortcutBox from "./ShortcutBox";
 
 export interface DesktopProps {
-    background: string;
+    background?: string;
     shortcuts?: ApplicationProps[];
     apps?: ApplicationProps[];
     starts?: ApplicationProps[];
@@ -71,8 +71,8 @@ export default function Desktop(props:DesktopProps) {
     }, [manager.current]);
 
     const launch = useCallback((app:ApplicationProps, componentProps?:any) => {
-        if (app.outside) {
-            window.open(app.url);
+        if (app.target) {
+            window.open(app.url, app.target);
             return;
         }
         manager.current.startProcess(app, componentProps);
@@ -106,7 +106,7 @@ export default function Desktop(props:DesktopProps) {
                 width:'100%', 
                 height:'100%', 
                 overflow:'hidden',
-                background: `url(${props.background})`, 
+                background: props.background ? `url(${props.background})` : 'pink', 
                 backgroundSize: 'cover',
                 backgroundPosition: 'center',
                 display:'flex',

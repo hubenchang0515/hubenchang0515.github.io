@@ -10,13 +10,6 @@ const Advertising = React.lazy(() => import("./components/Advertising"))
 // 快捷方式列表，显示在桌面上
 export const SHORTCUTS:ApplicationProps[] = [
     {
-        title: 'Moe Nav',
-        icon: 'https://xplanc.org/moe-nav/favicon.svg',
-        url: 'https://xplanc.org/moe-nav/',
-        subtitle: 'Navigation page',
-    },
-
-    {
         title: 'Primers',
         icon: 'https://xplanc.org/primers/icon.svg',
         url: 'https://xplanc.org/primers/',
@@ -36,20 +29,6 @@ export const SHORTCUTS:ApplicationProps[] = [
         url: 'https://xplanc.org/QtTheme/',
         subtitle: 'Qt theme in pure qss',
         poor: true,
-    },
-
-    {
-        title: 'Phosphophyllite',
-        icon: 'https://xplanc.org/Phosphophyllite/favicon.svg',
-        url: 'https://xplanc.org/Phosphophyllite/',
-        subtitle: 'Plan C\'s Blog',
-    },
-
-    {
-        title: 'Moe Tools',
-        icon: 'https://xplanc.org/moe-tools/favicon.svg',
-        url: 'https://xplanc.org/moe-tools/',
-        subtitle: 'Versatile online toolset',
     },
 ]
 
@@ -148,6 +127,14 @@ export const APPS:ApplicationProps[] = [
 
 // 预启动的应用列表
 export const STARTS:ApplicationProps[] = [
+    {
+        title: 'Primers',
+        icon: 'https://xplanc.org/primers/icon.svg',
+        url: 'https://xplanc.org/primers/',
+        subtitle: 'Learn to Program From Scratch',
+        target:'_self',
+    },
+
     {
         title: '萌ICP备20250515号',
         icon: 'https://travel.moe/images/ico64.png',
