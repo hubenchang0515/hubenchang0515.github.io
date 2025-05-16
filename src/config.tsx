@@ -128,14 +128,6 @@ export const APPS:ApplicationProps[] = [
 // 预启动的应用列表
 export const STARTS:ApplicationProps[] = [
     {
-        title: 'Primers',
-        icon: 'https://xplanc.org/primers/icon.svg',
-        url: 'https://xplanc.org/primers/',
-        subtitle: 'Learn to Program From Scratch',
-        target:'_self',
-    },
-
-    {
         title: '萌ICP备20250515号',
         icon: 'https://travel.moe/images/ico64.png',
         url: 'https://icp.gov.moe/?keyword=20250515',
