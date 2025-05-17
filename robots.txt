@@ -1,5 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /document/
 
 Sitemap: https://xplanc.org/sitemap.txt
 Sitemap: https://xplanc.org/primers/sitemap.xml
