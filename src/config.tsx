@@ -65,22 +65,22 @@ export const APPS:ApplicationProps[] = [
 
     {
         title: 'Moe Nav',
-        icon: 'https://xplanc.org/moe-nav/favicon.svg',
-        url: 'https://xplanc.org/moe-nav/',
+        icon: 'https://hubenchang0515.github.io/moe-nav/favicon.svg',
+        url: 'https://hubenchang0515.github.io/moe-nav/',
         subtitle: 'Navigation page',
     },
 
     {
         title: 'Moe Tools',
-        icon: 'https://xplanc.org/moe-tools/favicon.svg',
-        url: 'https://xplanc.org/moe-tools/',
+        icon: 'https://hubenchang0515.github.io/moe-tools/favicon.svg',
+        url: 'https://hubenchang0515.github.io/moe-tools/',
         subtitle: 'Versatile online toolset',
     },
 
     {
         title: 'Nuclear & Peace',
-        icon: 'https://xplanc.org/nuclear-peace/icon.svg',
-        url: 'https://xplanc.org/nuclear-peace/',
+        icon: 'https://hubenchang0515.github.io/nuclear-peace/icon.svg',
+        url: 'https://hubenchang0515.github.io/nuclear-peace/',
         subtitle: 'Nuclear weapon demonstration',
     },
 
@@ -88,7 +88,7 @@ export const APPS:ApplicationProps[] = [
         title: 'Lolipop',
         icon: 'https://raw.githubusercontent.com/hubenchang0515/Lolipop/refs/heads/master/src/resource/icon.svg',
         subtitle: 'Video Player',
-        url: 'https://xplanc.org/Lolipop/Lolipop.html',
+        url: 'https://hubenchang0515.github.io/Lolipop/Lolipop.html',
 
     },
 
@@ -111,8 +111,8 @@ export const APPS:ApplicationProps[] = [
     {
         title: "Friends",
         subtitle: 'Friendship links',
-        icon: 'https://xplanc.org/friends/favicon.svg',
-        url: 'https://xplanc.org/friends/',
+        icon: 'https://hubenchang0515.github.io/friends/favicon.svg',
+        url: 'https://hubenchang0515.github.io/friends/',
         poor: true,
     },
 
@@ -138,8 +138,8 @@ export const STARTS:ApplicationProps[] = [
 
     {
         title: "Friends",
-        icon: 'https://xplanc.org/friends/favicon.svg',
-        url: 'https://xplanc.org/friends/',
+        icon: 'https://hubenchang0515.github.io/friends/favicon.svg',
+        url: 'https://hubenchang0515.github.io/friends/',
         tray: true,
         minimum: true,
         closeIsMinimum: true,
